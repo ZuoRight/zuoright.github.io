@@ -1,0 +1,3167 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Right is right, left is also right.">
+      
+      
+      
+        <meta name="author" content="7c">
+      
+      
+        <link rel="canonical" href="http://www.zuoright.com/Web%E5%BC%80%E5%8F%91/Django/">
+      
+      <link rel="icon" href="../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.5">
+    
+    
+      
+        <title>Django开发 - ZuoRight</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.be71726b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#django" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="ZuoRight" class="md-header__button md-logo" aria-label="ZuoRight" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.59 11.59 23 13l-9.5 9.5-5.08-5.09L9.83 16l3.67 3.68 8.09-8.09M4 16V3h5a4 4 0 0 1 4 4c0 1.54-.87 2.88-2.15 3.55L14 16h-2l-2.89-5H6v5H4m2-7h3a2 2 0 0 0 2-2 2 2 0 0 0-2-2H6v4z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ZuoRight
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Django开发
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ZuoRight" class="md-nav__button md-logo" aria-label="ZuoRight" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.59 11.59 23 13l-9.5 9.5-5.08-5.09L9.83 16l3.67 3.68 8.09-8.09M4 16V3h5a4 4 0 0 1 4 4c0 1.54-.87 2.88-2.15 3.55L14 16h-2l-2.89-5H6v5H4m2-7h3a2 2 0 0 0 2-2 2 2 0 0 0-2-2H6v4z"/></svg>
+
+    </a>
+    ZuoRight
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        关于这里
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        DevOps
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="DevOps" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          DevOps
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DevOps/Container/" class="md-nav__link">
+        容器
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DevOps/Docker/" class="md-nav__link">
+        Docker
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DevOps/Git/" class="md-nav__link">
+        Git
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DevOps/GitHub/" class="md-nav__link">
+        GitHub Actions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DevOps/GitLab/" class="md-nav__link">
+        GitLab CI/CD
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DevOps/Jenkins/" class="md-nav__link">
+        Jenkins
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DevOps/Kubernetes/" class="md-nav__link">
+        Kubernetes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DevOps/SVN/" class="md-nav__link">
+        SVN
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        IO操作
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="IO操作" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          IO操作
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IO%E6%93%8D%E4%BD%9C/0%E8%AF%BB%E5%86%99%E6%93%8D%E4%BD%9C/" class="md-nav__link">
+        读写操作
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IO%E6%93%8D%E4%BD%9C/1%E8%AF%BB%E5%86%99%E5%86%85%E5%AD%98/" class="md-nav__link">
+        读写内存
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IO%E6%93%8D%E4%BD%9C/2%E8%AF%BB%E5%86%99%E5%90%84%E7%A7%8D%E6%A0%BC%E5%BC%8F/" class="md-nav__link">
+        读写各种格式
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IO%E6%93%8D%E4%BD%9C/3%E5%90%84%E7%A7%8D%E9%80%9A%E7%94%A8%E6%A0%BC%E5%BC%8F/" class="md-nav__link">
+        各种通用格式
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IO%E6%93%8D%E4%BD%9C/4JSONPath/" class="md-nav__link">
+        JSONPath
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IO%E6%93%8D%E4%BD%9C/OpenPyXl/" class="md-nav__link">
+        OpenPyXl
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Python
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Python" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="md-nav__link">
+        数据类型
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/2%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%86%85%E7%BD%AE%E6%96%B9%E6%B3%95/" class="md-nav__link">
+        数据类型内置方法
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/2%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%93%8D%E4%BD%9C/" class="md-nav__link">
+        数据类型的操作
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/3%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="md-nav__link">
+        表达式
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/4%E8%AF%AD%E5%8F%A5/" class="md-nav__link">
+        语句
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/5%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        函数
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/6%E7%B1%BB/" class="md-nav__link">
+        类
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/8%E6%A8%A1%E5%9D%97/" class="md-nav__link">
+        模块
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_9" type="checkbox" id="__nav_4_9" >
+      
+      <label class="md-nav__link" for="__nav_4_9">
+        环境管理
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="环境管理" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_9">
+          <span class="md-nav__icon md-icon"></span>
+          环境管理
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7/" class="md-nav__link">
+        其他工具
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E5%8F%8A%E5%8C%85%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        虚拟环境及包管理
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/%E8%A7%84%E8%8C%83/" class="md-nav__link">
+        简介
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_10" type="checkbox" id="__nav_4_10" >
+      
+      <label class="md-nav__link" for="__nav_4_10">
+        轮子
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="轮子" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_10">
+          <span class="md-nav__icon md-icon"></span>
+          轮子
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/%E8%BD%AE%E5%AD%90/deepdiff/" class="md-nav__link">
+        deepdiff
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/%E8%BD%AE%E5%AD%90/openpyxl/" class="md-nav__link">
+        OpenPyXL
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/%E8%BD%AE%E5%AD%90/%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        内置组件
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/%E8%BD%AE%E5%AD%90/%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97/" class="md-nav__link">
+        内置模块
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/%E8%BD%AE%E5%AD%90/%E5%B8%B8%E7%94%A8%E7%A4%BA%E4%BE%8B/" class="md-nav__link">
+        常用示例
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/%E8%BD%AE%E5%AD%90/%E6%97%B6%E9%97%B4%E6%A8%A1%E5%9D%97/" class="md-nav__link">
+        时间模块
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python/%E8%BD%AE%E5%AD%90/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/" class="md-nav__link">
+        第三方库
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Tools
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Tools" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/ADB/" class="md-nav__link">
+        ADB
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/awk/" class="md-nav__link">
+        AWK
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/sed/" class="md-nav__link">
+        文本编辑器
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/%E6%9F%A5%E6%89%BE/" class="md-nav__link">
+        查找
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="md-nav__link">
+        正则表达式
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tools/%E7%BC%96%E8%BE%91%E5%99%A8/" class="md-nav__link">
+        编辑器
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      <label class="md-nav__link" for="__nav_6">
+        Web开发
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Web开发" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Web开发
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CGI/" class="md-nav__link">
+        Web Server Gateway Interface
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Django开发
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Django开发
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    常用命令
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    项目
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    应用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelspy" class="md-nav__link">
+    应用模型 models.py
+  </a>
+  
+    <nav class="md-nav" aria-label="应用模型 models.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    应用声明
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#table" class="md-nav__link">
+    为声明的应用创建表（table）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    创建管理员账号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    定义模型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sheet" class="md-nav__link">
+    数据迁移（创建/修改sheet）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    重置迁移文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    压缩迁移文件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    数据库API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adminpy" class="md-nav__link">
+    管理后台 admin.py
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viewspy" class="md-nav__link">
+    视图函数 views.py
+  </a>
+  
+    <nav class="md-nav" aria-label="视图函数 views.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#httprequest" class="md-nav__link">
+    HttpRequest
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httpresponse" class="md-nav__link">
+    HttpResponse
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    重定向
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#404" class="md-nav__link">
+    404
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#urlspy" class="md-nav__link">
+    路由配置 urls.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    通用视图
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    模板
+  </a>
+  
+    <nav class="md-nav" aria-label="模板">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    防止跨站点请求伪造
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#url" class="md-nav__link">
+    去除硬编码URL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    过滤器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    静态文件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    数据库配置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    配置拆分
+  </a>
+  
+    <nav class="md-nav" aria-label="配置拆分">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set_base" class="md-nav__link">
+    set_base
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_dev" class="md-nav__link">
+    set_dev
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_prod" class="md-nav__link">
+    set_prod
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    启动
+  </a>
+  
+    <nav class="md-nav" aria-label="启动">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    自带服务器命令行启动
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uwsgi" class="md-nav__link">
+    uWSGI 启动
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nginx-uwsgi" class="md-nav__link">
+    Nginx + uWSGI 启动
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Flask/" class="md-nav__link">
+        Flask
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Flask%E6%89%A9%E5%B1%95%E5%BA%93/" class="md-nav__link">
+        Flask扩展库
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Jinja2/" class="md-nav__link">
+        Jinja2
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Nginx/" class="md-nav__link">
+        Nginx
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%9A%90%E7%A7%81%E6%95%B0%E6%8D%AE%E8%84%B1%E6%95%8F/" class="md-nav__link">
+        隐私数据脱敏
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        大前端
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="大前端" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          大前端
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%A4%A7%E5%89%8D%E7%AB%AF/Android/" class="md-nav__link">
+        Android
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%A4%A7%E5%89%8D%E7%AB%AF/HTML/" class="md-nav__link">
+        HTML
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%A4%A7%E5%89%8D%E7%AB%AF/JavaScript/" class="md-nav__link">
+        JavaScript
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%A4%A7%E5%89%8D%E7%AB%AF/NodeJS/" class="md-nav__link">
+        Node.JS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%A4%A7%E5%89%8D%E7%AB%AF/iview/" class="md-nav__link">
+        iView
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%A4%A7%E5%89%8D%E7%AB%AF/vue/" class="md-nav__link">
+        Vue
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%A4%A7%E5%89%8D%E7%AB%AF/%E5%B8%83%E5%B1%80/" class="md-nav__link">
+        布局
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      <label class="md-nav__link" for="__nav_8">
+        抓包
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="抓包" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          抓包
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%8A%93%E5%8C%85/Charles/" class="md-nav__link">
+        Charles
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%8A%93%E5%8C%85/HTTPCanary/" class="md-nav__link">
+        HttpCanary
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%8A%93%E5%8C%85/Mock/" class="md-nav__link">
+        Mock
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%8A%93%E5%8C%85/WireShark/" class="md-nav__link">
+        WireShark
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%8A%93%E5%8C%85/mitmproxy/" class="md-nav__link">
+        mitmproxy
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%8A%93%E5%8C%85/tcpdump/" class="md-nav__link">
+        tcpdump
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%8A%93%E5%8C%85/%E6%8A%93%E5%8C%85%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        抓包基础
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      <label class="md-nav__link" for="__nav_9">
+        操作系统
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="操作系统" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          操作系统
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/C/" class="md-nav__link">
+        C
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Java/" class="md-nav__link">
+        Java
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Linux/" class="md-nav__link">
+        Linux
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Mac/" class="md-nav__link">
+        Mac
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Shell/" class="md-nav__link">
+        Shell
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/Windows/" class="md-nav__link">
+        Windows
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        内存管理
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+        文件系统
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%BC%96%E7%A8%8B/" class="md-nav__link">
+        编程
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/" class="md-nav__link">
+        进程管理
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" type="checkbox" id="__nav_10" >
+      
+      <label class="md-nav__link" for="__nav_10">
+        数据库
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="数据库" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          数据库
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/" class="md-nav__link">
+        MySQL
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/" class="md-nav__link">
+        Redis
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
+      
+      <label class="md-nav__link" for="__nav_11">
+        测试开发
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="测试开发" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          测试开发
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91/Allure/" class="md-nav__link">
+        Allure
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91/Appium/" class="md-nav__link">
+        Appium
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91/DOM%E5%88%86%E6%9E%90/" class="md-nav__link">
+        DOM分析
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91/Pytest/" class="md-nav__link">
+        Pytest
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91/Requests/" class="md-nav__link">
+        Requests
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91/Selenium/" class="md-nav__link">
+        Selenium
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91/%E5%8E%9F%E7%90%86/" class="md-nav__link">
+        原理
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/" class="md-nav__link">
+        接口测试框架
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_9" type="checkbox" id="__nav_11_9" >
+      
+      <label class="md-nav__link" for="__nav_11_9">
+        理论
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="理论" data-md-level="2">
+        <label class="md-nav__title" for="__nav_11_9">
+          <span class="md-nav__icon md-icon"></span>
+          理论
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91/%E7%90%86%E8%AE%BA/POM/" class="md-nav__link">
+        POM
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91/%E7%90%86%E8%AE%BA/%E5%85%B3%E4%BA%8E%E6%B5%8B%E8%AF%95/" class="md-nav__link">
+        关于测试
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91/%E7%90%86%E8%AE%BA/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" class="md-nav__link">
+        单元测试
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91/%E7%90%86%E8%AE%BA/%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91/" class="md-nav__link">
+        测试开发
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91/%E7%90%86%E8%AE%BA/%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1/" class="md-nav__link">
+        用例设计
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91/%E7%90%86%E8%AE%BA/%E7%BB%8F%E5%85%B8%E6%B5%8B%E8%AF%95%E9%A2%98%E7%9B%AE/" class="md-nav__link">
+        经典测试题目
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91/%E7%90%86%E8%AE%BA/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/" class="md-nav__link">
+        软件开发
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91/%E7%90%86%E8%AE%BA/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/" class="md-nav__link">
+        软件测试
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" type="checkbox" id="__nav_12" >
+      
+      <label class="md-nav__link" for="__nav_12">
+        算法
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="算法" data-md-level="1">
+        <label class="md-nav__title" for="__nav_12">
+          <span class="md-nav__icon md-icon"></span>
+          算法
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="md-nav__link">
+        排序算法
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/" class="md-nav__link">
+        算法复杂度分析
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95%E6%98%AF%E4%BB%80%E4%B9%88/" class="md-nav__link">
+        算法是什么
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13" type="checkbox" id="__nav_13" >
+      
+      <label class="md-nav__link" for="__nav_13">
+        网络相关
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="网络相关" data-md-level="1">
+        <label class="md-nav__title" for="__nav_13">
+          <span class="md-nav__icon md-icon"></span>
+          网络相关
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/HTTP/" class="md-nav__link">
+        HTTP
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/HTTPS/" class="md-nav__link">
+        HTTPS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/IP/" class="md-nav__link">
+        IP
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/Internet/" class="md-nav__link">
+        Internet
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/P2P/" class="md-nav__link">
+        P2P
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/cURL/" class="md-nav__link">
+        cURL
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/ssh/" class="md-nav__link">
+        SSH
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/%E4%BC%A0%E8%BE%93%E5%B1%82/" class="md-nav__link">
+        传输层
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/%E8%BE%93%E5%85%A5%E7%BD%91%E5%9D%80%E6%95%B2%E5%87%BB%E5%9B%9E%E8%BD%A6%E4%B9%8B%E5%90%8E/" class="md-nav__link">
+        输入网址，敲击回车之后
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    常用命令
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    项目
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    应用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modelspy" class="md-nav__link">
+    应用模型 models.py
+  </a>
+  
+    <nav class="md-nav" aria-label="应用模型 models.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    应用声明
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#table" class="md-nav__link">
+    为声明的应用创建表（table）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    创建管理员账号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    定义模型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sheet" class="md-nav__link">
+    数据迁移（创建/修改sheet）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    重置迁移文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    压缩迁移文件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    数据库API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adminpy" class="md-nav__link">
+    管理后台 admin.py
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viewspy" class="md-nav__link">
+    视图函数 views.py
+  </a>
+  
+    <nav class="md-nav" aria-label="视图函数 views.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#httprequest" class="md-nav__link">
+    HttpRequest
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httpresponse" class="md-nav__link">
+    HttpResponse
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    重定向
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#404" class="md-nav__link">
+    404
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#urlspy" class="md-nav__link">
+    路由配置 urls.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    通用视图
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    模板
+  </a>
+  
+    <nav class="md-nav" aria-label="模板">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    防止跨站点请求伪造
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#url" class="md-nav__link">
+    去除硬编码URL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    过滤器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    静态文件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    数据库配置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    配置拆分
+  </a>
+  
+    <nav class="md-nav" aria-label="配置拆分">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set_base" class="md-nav__link">
+    set_base
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_dev" class="md-nav__link">
+    set_dev
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_prod" class="md-nav__link">
+    set_prod
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    启动
+  </a>
+  
+    <nav class="md-nav" aria-label="启动">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    自带服务器命令行启动
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uwsgi" class="md-nav__link">
+    uWSGI 启动
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nginx-uwsgi" class="md-nav__link">
+    Nginx + uWSGI 启动
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="django">Django开发<a class="headerlink" href="#django" title="Permanent link">&para;</a></h1>
+<p>学习Django直接看官方文档就可以了，<a href="https://docs.djangoproject.com/zh-hans/3.2/contents/">Django的官方文档</a>是我见过最好最全的技术文档。</p>
+<h2 id="_1">常用命令<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>启动服务器：<code>python manage.py runserver</code></li>
+<li>生成迁移文件：<code>python manage.py makemigrations one_app</code></li>
+<li>数据迁移：<code>python manage.py migrate</code></li>
+<li>创建后台管理员：<code>python manage.py createsuperuser</code></li>
+<li>进入交互式命令行：<code>python manage.py shell</code></li>
+</ul>
+<h2 id="_2">项目<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>创建项目：<code>django-admin startproject mysite</code></li>
+<li>创建应用：<code>python manage.py startapp one_app</code></li>
+<li>项目结构：</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># 项目容器，可重命名</span>
+mysite/
+    <span class="c1"># 命令行工具</span>
+    manage.py
+    <span class="c1"># 项目</span>
+    mysite/
+        __init__.py
+        <span class="c1"># 配置文件</span>
+        settings.py
+        <span class="c1"># 路由声明，网站目录</span>
+        urls.py
+        <span class="c1"># 兼容asgi的服务器入口</span>
+        asgi.py
+        <span class="c1"># 兼容wsgi的服务器入口</span>
+        wsgi.py
+</code></pre></div>
+<h2 id="_3">应用<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>一个项目可以包含多个应用，一个应用可以被多个项目使用</p>
+<p>应用可以存放在任意路径，不过通常与manage.py同级，这样就可以作为顶级模块导入</p>
+<ul>
+<li>创建应用：<code>python manage.py startapp one_app</code></li>
+<li>应用结构：</li>
+</ul>
+<div class="highlight"><pre><span></span><code>one_app/
+    __init__.py
+    admin.py
+    apps.py
+    migrations/
+        __init__.py
+    models.py
+    tests.py
+    views.py
+    <span class="c1"># 以下文件自己创建</span>
+    urls.py  <span class="c1"># URLconf路由配置文件（也可以是其他任何路径）</span>
+    templates/  <span class="c1"># 模版容器</span>
+        one_app/  <span class="c1"># 命名空间，由于DjangoTemplates会在每个INSTALL_APPS路径下依次寻找templates子目录，如果多个APP之间模板名称一样，只会匹配到第一个，容易出错。</span>
+            index.html  <span class="c1"># 模版</span>
+</code></pre></div>
+<h2 id="modelspy">应用模型 models.py<a class="headerlink" href="#modelspy" title="Permanent link">&para;</a></h2>
+<h3 id="_4">应用声明<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># mysite/settings.py</span>
+<span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># Django自带应用</span>
+    <span class="s1">&#39;django.contrib.admin&#39;</span><span class="p">,</span>  <span class="c1"># 管理后台</span>
+    <span class="s1">&#39;django.contrib.auth&#39;</span><span class="p">,</span>  <span class="c1"># 认证授权系统</span>
+    <span class="s1">&#39;django.contrib.contenttypes&#39;</span><span class="p">,</span>  <span class="c1"># 内容类型框架</span>
+    <span class="s1">&#39;django.contrib.sessions&#39;</span><span class="p">,</span>  <span class="c1"># 会话框架</span>
+    <span class="s1">&#39;django.contrib.messages&#39;</span><span class="p">,</span>  <span class="c1"># 消息框架</span>
+    <span class="s1">&#39;django.contrib.staticfiles&#39;</span><span class="p">,</span>  <span class="c1"># 管理静态文件的框架</span>
+    <span class="c1"># 以下是自定义应用</span>
+    <span class="s1">&#39;one_app.apps.One_appConfig&#39;</span><span class="p">,</span>  <span class="c1"># 完整形式</span>
+    <span class="s1">&#39;one_app&#39;</span><span class="p">,</span>  <span class="c1"># 简写形式</span>
+<span class="p">]</span>
+</code></pre></div>
+<h3 id="table">为声明的应用创建表（table）<a class="headerlink" href="#table" title="Permanent link">&para;</a></h3>
+<p><code>python manage.py migrate</code></p>
+<p>查看创建了哪些表：<code>.schema</code>(SQLite)，<code>SHOW TABLES;</code>(MySQL)</p>
+<h3 id="_5">创建管理员账号<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p><code>python manage.py createsuperuser</code></p>
+<p>然后启动服务器访问：127.0.0.1:8000/admin 即可访问后台</p>
+<h3 id="_6">定义模型<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+
+<span class="c1"># 每个类就是一个模型(sheet)，继承自models.Model</span>
+<span class="k">class</span> <span class="nc">Question</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="c1"># 每个属性代表一个字段(field)</span>
+    <span class="c1"># 格式：字段名 = models.类型(参数, &quot;备注名&quot;)</span>
+    <span class="c1"># 主键id字段不需要定义，会被自动添加</span>
+    <span class="n">question_text</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+    <span class="n">pub_date</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="s1">&#39;date published&#39;</span><span class="p">)</span>
+
+    <span class="c1"># 在执行Question.objects.all()时默认执行这个方法</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">question_text</span>  <span class="c1"># 可以返回一个能标识这个模型的字段</span>
+
+<span class="k">class</span> <span class="nc">Choice</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">question</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Question</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>  <span class="c1"># 外键</span>
+    <span class="n">choice_text</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+    <span class="n">votes</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+<p><a href="https://docs.djangoproject.com/zh-hans/3.1/ref/models/fields/#">字段类型及参数</a></p>
+<p>字段名：不能用Python保留字，不能连续用多个下划线且不能以下划线结尾</p>
+<p>字段备注名：默认使用字段的属性名作为备注名</p>
+<p>常见字段类型：</p>
+<ul>
+<li>models.AutoField(primary_key=True)  模型会自动设置id字段为自增主键</li>
+<li>models.ForeignKey(想要关联的模型类名, on_delete=models.CASCADE)  外键（多对一关联，还可以自关联(递归）)</li>
+<li>models.IntegerField()  整数</li>
+<li>models.CharField(max_length=num)  字符串</li>
+<li>models.BooleanField()  布尔值</li>
+<li>models.DateField(auto_now_add/auto_now=True)  日期(第一次创建时设置为现在时间/每次保存时(更新时不会)设置为现在时间)</li>
+<li>models.DateTimeField(auto_now_add/auto_now=True)  日期和时间</li>
+<li>models.JSONField(encoder=None, decoder=None)  v3.1版本新加Json类型，如果mysql为5.7以下版本不要使用这个类型</li>
+<li>models.URLField(max_length=num)  URL</li>
+<li>models.UUIDField()  唯一标识符</li>
+</ul>
+<p>字段通用参数：</p>
+<ul>
+<li><code>blank=True</code> 字段为空时就是空</li>
+<li><code>null=True</code> 字段为空时设置为NUL</li>
+<li><code>choices=[("S", "Small"), (“B”, “Big”)]</code> 枚举值（二元组的第一个值存在数据库中，第二个值用于显示）</li>
+<li><code>default=xxx</code> 默认值，一般为None</li>
+<li><code>help_text=xxx</code> 注释文本</li>
+<li><code>primary_key=True</code> 设置为主键，一般不需要手动设置主键，默认会添加一列id字段为主键</li>
+<li><code>unique=True</code> 字段的值唯一，即不能重复</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># 数据库迁移</span>
+<span class="c1"># 生成数据迁移文件(SQL脚本)(生成到migrations/路径下)</span>
+<span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">makemigrations</span>
+<span class="c1"># 为每个应用自动生成需要的数据库表，具体创建什么取决于数据库迁移文件</span>
+<span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">migrate</span>
+<span class="c1"># 创建后台管理员账号</span>
+<span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">createsuperuser</span>
+<span class="c1"># 根据提示输入用户名邮箱和密码（admin，admin@zuoright.com，123456）</span>
+<span class="c1"># 访问后台：127.0.0.1:8000/admin</span>
+</code></pre></div>
+<h3 id="sheet">数据迁移（创建/修改sheet）<a class="headerlink" href="#sheet" title="Permanent link">&para;</a></h3>
+<ul>
+<li>step1：生成迁移数据（SQL语句）</li>
+</ul>
+<div class="highlight"><pre><span></span><code>python manage.py makemigrations one_app
+</code></pre></div>
+<p>迁移数据存储在：<code>one_app/migrations/0001_initial.py</code>中</p>
+<p>查看生成了哪些SQL语句：<code>python manage.py sqlmigrate one_app 0001</code></p>
+<ul>
+<li>step2：执行迁移（执行SQL语句）</li>
+</ul>
+<div class="highlight"><pre><span></span><code>python manage.py migrate
+</code></pre></div>
+<h3 id="_7">重置迁移文件<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 查看当前迁移文件记录及状态</span>
+python manage.py showmigrations
+<span class="c1"># 将某应用的迁移文件重置为未提交状态</span>
+python manage.py migrate --fake 应用名 zero
+<span class="c1"># 然后手动删除应用下的migrations文件（内置应用存放在env/lib/python/site-packages/django/contrib下）</span>
+<span class="c1"># 重新生成migrations文件</span>
+python manage.py makemigrations
+<span class="c1"># 重新在django_migrations表中加入记录</span>
+python manage.py migrate 应用名 --fake-inital
+</code></pre></div>
+<h3 id="_8">压缩迁移文件<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 假设要压缩的应用为myapp，现在有5个迁移文件，最新的为0005_xxx</span>
+<span class="c1"># 生成压缩后的迁移文件</span>
+python manage.py squashmigrations <span class="m">0005</span>
+<span class="c1"># 把新的迁移文件提交下</span>
+python manage.py makemigrations
+<span class="c1"># 然后删除旧的迁移文件，把依赖旧迁移文件的地方(主要是其他应用中)都替换为新的文件名</span>
+<span class="c1"># 删除压缩迁移的 Migration 类的 replaces 属性</span>
+<span class="c1"># 最后执行下迁移命令不报错则说明压缩成功</span>
+python manage.py migrate
+</code></pre></div>
+<h2 id="api">数据库API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">one_app.models</span> <span class="kn">import</span> <span class="n">Blog</span>
+
+<span class="c1"># SELECT语句</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="n">Blog</span><span class="o">.</span><span class="n">objects</span>  <span class="c1">#  Managerd对象，表级操作</span>
+<span class="n">Q</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>  <span class="c1"># 等同于Q，返回一个包含所有记录的QuerySet对象集合</span>
+<span class="n">Q</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s2">&quot;xxx&quot;</span><span class="p">)</span>  <span class="c1"># 按某字段排序</span>
+
+<span class="c1"># WHERE子句</span>
+<span class="n">Q</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># 如果查询结果只有一条记录可以用get，但如果查不到或查到多条会报错</span>
+<span class="n">Q</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c1"># 过滤满足条件的记录，WHERE xxx AND xxx</span>
+<span class="n">Q</span><span class="o">.</span><span class="n">exclude</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c1"># 排除满足条件的记录，WHERE NOT(xxx AND xxx)</span>
+<span class="n">Q</span><span class="o">.</span><span class="n">exclude</span><span class="p">()</span><span class="o">.</span><span class="n">exclude</span><span class="p">()</span>  <span class="c1"># WHERE NOT xxx AND NOT xxx</span>
+
+<span class="c1"># LIMIT和OFFSET子句，切片，不支持负数索引，可以用步长2</span>
+<span class="n">Q</span><span class="o">.</span><span class="n">all</span><span class="p">()[:</span><span class="mi">5</span><span class="p">]</span>  <span class="c1"># LIMIT 5 返回前5个对象</span>
+<span class="n">Q</span><span class="o">.</span><span class="n">all</span><span class="p">()[</span><span class="mi">5</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>  <span class="c1"># OFFSET 5 LIMIT 5 返回第6～10个对象</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">Blog</span><span class="p">(</span><span class="n">Field1</span><span class="o">=</span><span class="s2">&quot;x1&quot;</span><span class="p">,</span> <span class="n">Field2</span><span class="o">=</span><span class="s2">&quot;x2&quot;</span><span class="p">)</span>  <span class="c1"># 实例初始化，行级操作</span>
+<span class="n">r</span><span class="o">.</span><span class="n">Field1</span> <span class="o">=</span> <span class="s2">&quot;x01&quot;</span>  <span class="c1"># 修改字段值</span>
+
+<span class="n">r</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>  <span class="c1"># 保存</span>
+</code></pre></div>
+<p>字段查询</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 完全匹配 =</span>
+<span class="n">Q</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name__exact</span><span class="o">=</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>  <span class="c1"># WHERE name = &quot;abc&quot;;</span>
+<span class="n">Q</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>  <span class="c1"># 同上</span>
+
+<span class="c1"># 比较</span>
+<span class="n">__gt</span>  <span class="c1"># 大于</span>
+<span class="n">__gte</span>  <span class="c1"># 大于等于</span>
+<span class="n">__lt</span>   <span class="c1"># 小于</span>
+<span class="n">__lte</span>  <span class="c1"># 小于等于</span>
+
+<span class="c1"># LIKE 区分大小写</span>
+<span class="n">Q</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name__contains</span><span class="o">=</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>  <span class="c1"># WHERE name LIKE &#39;%abc%&#39;;</span>
+<span class="n">Q</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">name__startswith</span><span class="o">=</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>  <span class="c1"># WHERE name LIKE &#39;abc%&#39;;</span>
+<span class="n">Q</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">name__endswith</span><span class="o">=</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>  <span class="c1"># WHERE name LIKE &#39;%abc&#39;;</span>
+
+<span class="c1"># ILIKE 不区分大小写</span>
+<span class="n">Q</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name__iexact</span><span class="o">=</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>  <span class="c1"># WHERE name ILIKE &#39;abc&#39;;</span>
+<span class="n">Q</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name__icontains</span><span class="o">=</span><span class="s2">&quot;xxx&quot;</span><span class="p">)</span>  <span class="c1"># WHERE name ILIKE &#39;%abc%&#39;;</span>
+<span class="n">Q</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name__istartswith</span><span class="o">=</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>  <span class="c1"># WHERE name ILIKE &#39;abc%&#39;;</span>
+<span class="n">Q</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name__iendswith</span><span class="o">=</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>  <span class="c1"># WHERE name ILIKE &#39;%abc&#39;;</span>
+
+<span class="c1"># IN</span>
+<span class="n">Q</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">id__in</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>  <span class="c1"># WHERE id IN (1, 3, 4);</span>
+
+<span class="c1"># BETWEEN...AND...</span>
+<span class="n">Q</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">date__range</span><span class="o">=</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">))</span>  <span class="c1"># WHERE date BETWEEN &#39;start_date&#39; and &#39;end_date&#39;;</span>
+</code></pre></div>
+<h2 id="adminpy">管理后台 admin.py<a class="headerlink" href="#adminpy" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># one_app/admin.py</span>
+<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Question</span>
+
+<span class="c1"># 把应用注册到管理后台</span>
+<span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">Question</span><span class="p">)</span>
+</code></pre></div>
+<p>然后就可以对记录进行操作，增删改查</p>
+<h2 id="viewspy">视图函数 views.py<a class="headerlink" href="#viewspy" title="Permanent link">&para;</a></h2>
+<h3 id="httprequest">HttpRequest<a class="headerlink" href="#httprequest" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Question</span>  <span class="c1"># 引入模型</span>
+<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>  <span class="c1"># 引入快捷函数</span>
+
+
+<span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>  <span class="c1"># request=&lt;HttpRequest object&gt;</span>
+    <span class="c1"># 通过request.POST字典对象获取表单提交的数据</span>
+    <span class="c1"># 取不到值会报KeyError，取到的值永远是字符串</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">xxx</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">[</span><span class="s2">&quot;key_name&quot;</span><span class="p">]</span>
+    <span class="k">except</span> <span class="p">(</span><span class="ne">KeyError</span><span class="p">,</span> <span class="n">Choice</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">):</span>
+        <span class="k">pass</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;one_app/index.html&#39;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="httpresponse">HttpResponse<a class="headerlink" href="#httpresponse" title="Permanent link">&para;</a></h3>
+<ul>
+<li>方式1，HttpResponse返回文本</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
+
+<span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">xxx</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li>方式2，HttpResponse返回模板</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponse</span>
+<span class="kn">from</span> <span class="nn">django.template</span> <span class="kn">import</span> <span class="n">loader</span>
+
+<span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">xxx</span>
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="n">a</span><span class="p">}</span>  <span class="c1"># 上下文</span>
+
+    <span class="n">template</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">get_template</span><span class="p">(</span><span class="s1">&#39;one_app/index.html&#39;</span><span class="p">)</span>  <span class="c1"># 载入模板文件</span>
+    <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">request</span><span class="p">))</span>  <span class="c1"># 传递上下文</span>
+</code></pre></div>
+<ul>
+<li>方式3，HttpResponse用快捷函数形式返回模板（推荐）</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span><span class="p">,</span> <span class="n">get_object_or_404</span>
+
+<span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">xxx</span>
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="n">a</span><span class="p">}</span>
+
+    <span class="c1"># 格式：render(request对象，模板名称，上下文字典)</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;one_app/index.html&#39;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="_9">重定向<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpResponseRedirect</span>
+
+<span class="c1"># 构造函数：HttpResponseRedirect(重定向后的URL)</span>
+<span class="c1"># 视图函数中避免URL硬编码：reverse(视图名字，args=(视图所需参数的元组,))</span>
+<span class="k">return</span> <span class="n">HttpResponseRedirect</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;one_app:results&#39;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">question</span><span class="o">.</span><span class="n">id</span><span class="p">,)))</span>  <span class="c1"># /one_app/3/results/</span>
+</code></pre></div>
+<h3 id="404">404<a class="headerlink" href="#404" title="Permanent link">&para;</a></h3>
+<ul>
+<li>方式1</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">Http404</span>
+<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Question</span>
+
+<span class="k">def</span> <span class="nf">detail</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">question_id</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">question</span> <span class="o">=</span> <span class="n">Question</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">question_id</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">Question</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">Http404</span><span class="p">(</span><span class="s2">&quot;Question does not exist&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;one_app/detail.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;question&#39;</span><span class="p">:</span> <span class="n">question</span><span class="p">})</span>
+</code></pre></div>
+<ul>
+<li>方式2，快捷函数方式返回（推荐）</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">get_object_or_404</span><span class="p">,</span> <span class="n">render</span>
+
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Question</span>
+
+<span class="k">def</span> <span class="nf">detail</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">question_id</span><span class="p">):</span>
+    <span class="c1"># 格式：get_object_or_404(模型对象，任意数量的关键字参数)</span>
+    <span class="c1"># 如果关键字参数查不到结果则返回404</span>
+    <span class="n">question</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Question</span><span class="p">,</span> <span class="n">pk</span><span class="o">=</span><span class="n">question_id</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;one_app/detail.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;question&#39;</span><span class="p">:</span> <span class="n">question</span><span class="p">})</span>
+</code></pre></div>
+<h3 id="urlspy">路由配置 urls.py<a class="headerlink" href="#urlspy" title="Permanent link">&para;</a></h3>
+<ul>
+<li>配置项目的路由，根路由匹配应用</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># mysite/urls.py</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span><span class="p">,</span> <span class="n">include</span>
+<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># 必选参数view：如果要引用其它的URLconfs，应该总是使用inlcude()这种形式</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;one_app/&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s1">&#39;one_app.urls&#39;</span><span class="p">)),</span>
+    <span class="c1"># admin.site.urls是唯一的例外</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;admin/&#39;</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
+<span class="p">]</span>
+</code></pre></div>
+<ul>
+<li>配置应用的路由，应用匹配页面</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># one_app/urls.py</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">views</span>
+
+<span class="c1"># 添加命名空间，避免多个应用路由名称相同混淆</span>
+<span class="n">app_name</span> <span class="o">=</span> <span class="s2">&quot;one_app&quot;</span>
+
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># 格式：path(route, view, kwargs, name)</span>
+    <span class="c1"># 必选route：路由正则</span>
+    <span class="c1"># 必选view：调用视图函数，传入HttpRequest对象</span>
+    <span class="c1"># 可选kwargs：字典的形式给视图函数传递任意个关键字</span>
+    <span class="c1"># 可选name：给路由起名字，在项目任意位置引用</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">),</span>
+<span class="p">]</span>
+</code></pre></div>
+<h2 id="_10">通用视图<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># one_app/views.py</span>
+<span class="kn">from</span> <span class="nn">django.views</span> <span class="kn">import</span> <span class="n">generic</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Question</span>
+
+<span class="c1"># 通用视图ListView会显示一个特定类型对象的列表页面</span>
+<span class="k">class</span> <span class="nc">IndexView</span><span class="p">(</span><span class="n">generic</span><span class="o">.</span><span class="n">ListView</span><span class="p">):</span>
+    <span class="c1"># 通过model属性告知通用视图作用于哪个模型</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Question</span>
+    <span class="c1"># 通过template_name属性告知通用视图使用哪个模版</span>
+    <span class="c1"># 如果不指定，ListView默认使用&lt;app name&gt;/&lt;model name&gt;_list.html做模版</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s1">&#39;one_app/index.html&#39;</span>
+    <span class="c1"># 通过context_object_name属性告知通用视图上下文变量</span>
+    <span class="c1"># 如果不指定，默认为question_list</span>
+    <span class="n">context_object_name</span> <span class="o">=</span> <span class="s1">&#39;latest_question_list&#39;</span>
+
+<span class="c1"># 通用视图DetailView会显示一个特定类型对象的详细信息页面</span>
+<span class="k">class</span> <span class="nc">ResultsView</span><span class="p">(</span><span class="n">generic</span><span class="o">.</span><span class="n">DetailView</span><span class="p">):</span>  <span class="c1"># 不再需要传递request和question_id</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Question</span>
+    <span class="c1"># 如果不指定template_name，DetailView默认使用&lt;app name&gt;/&lt;model name&gt;_detail.html做模版</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s1">&#39;one_app/results.html&#39;</span>
+    <span class="c1"># 如果不指定context_object_name，默认为question</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># one_app/urls.py</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">views</span>
+
+<span class="n">app_name</span> <span class="o">=</span> <span class="s1">&#39;one_app&#39;</span>
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">IndexView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">),</span>
+    <span class="c1"># DetailView会捕获名为&quot;pk&quot;的主键值，所以路由参数的变量名要改为&quot;pk&quot;</span>
+    <span class="c1"># 视图参数也要改一下</span>
+    <span class="n">path</span><span class="p">(</span><span class="s1">&#39;&lt;int:pk&gt;/results/&#39;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">ResultsView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;results&#39;</span><span class="p">),</span>
+<span class="p">]</span>
+</code></pre></div>
+<h2 id="_11">模板<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>index<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{百分号 static &#39;xxx.css&#39; 百分号}&quot;</span><span class="p">&gt;</span> 
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<h3 id="_12">防止跨站点请求伪造<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p>所有针对内部 URL 的 POST 表单都应该使用 {百分号 csrf_token 百分号} 模板标签，防止跨站点请求伪造。</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;{百分号 url &#39;one_app:vote&#39; question.id 百分号}&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
+{百分号 csrf_token 百分号}
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</code></pre></div>
+<h3 id="url">去除硬编码URL<a class="headerlink" href="#url" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/one_app/{{ question.id }}/&quot;</span><span class="p">&gt;</span>xxx<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="c">&lt;!-- 去除后 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{百分号 url &#39;one_app:detail&#39; question.id 百分号}&quot;</span><span class="p">&gt;</span>xxx<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</code></pre></div>
+<h3 id="_13">过滤器<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p>过滤器的<code>|</code>符号左右最好不要加空格，否则被for循环时会报错</p>
+<p>自定义过滤器</p>
+<p><img alt="20210621191818" src="http://image.zuoright.com/20210621191818.png" /></p>
+<h3 id="_14">静态文件<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c">&lt;!-- 文件存放在one_app/static中 --&gt;</span>
+{百分号 load static 百分号}
+<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{百分号 static &#39;css/style.css&#39; 百分号}&quot;</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">img</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;180&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;180&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{百分号 static &#39;img/xxx.jpg&#39; 百分号}&quot;</span>
+</code></pre></div>
+<h2 id="_15">数据库配置<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<ul>
+<li>SQLite（默认，Python内置）</li>
+</ul>
+<p>自带，数据库会在需要的时候自动创建</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># mysite/settings.py</span>
+<span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;default&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;ENGINE&#39;</span><span class="p">:</span> <span class="s1">&#39;django.db.backends.sqlite3&#39;</span><span class="p">,</span>  <span class="c1"># 数据库引擎</span>
+        <span class="s1">&#39;NAME&#39;</span><span class="p">:</span> <span class="n">BASE_DIR</span> <span class="o">/</span> <span class="s1">&#39;db.sqlite3&#39;</span><span class="p">,</span>  <span class="c1"># sqlite的绝对路径</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>MySQL</li>
+</ul>
+<p>安装驱动：<code>pip install pymysql</code></p>
+<p>声明：<code>onestep/__init__.py</code></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pymysql</span>
+
+<span class="n">pymysql</span><span class="o">.</span><span class="n">install_as_MySQLdb</span><span class="p">()</span>  <span class="c1"># 告诉django用pymysql代替mysqldb连接数据库</span>
+</code></pre></div>
+<p>配置</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># mysite/settings.py</span>
+<span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;default&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;ENGINE&#39;</span><span class="p">:</span> <span class="s1">&#39;django.db.backends.mysql&#39;</span><span class="p">,</span>  <span class="c1"># 数据库引擎</span>
+        <span class="s1">&#39;NAME&#39;</span><span class="p">:</span> <span class="s1">&#39;dbname&#39;</span><span class="p">,</span>  <span class="c1"># 数据库名称</span>
+        <span class="s1">&#39;HOST&#39;</span><span class="p">:</span> <span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span>  <span class="c1"># host</span>
+        <span class="s1">&#39;PORT&#39;</span><span class="p">:</span> <span class="mi">3306</span><span class="p">,</span>  <span class="c1"># 端口 </span>
+        <span class="s1">&#39;USER&#39;</span><span class="p">:</span> <span class="s1">&#39;root&#39;</span><span class="p">,</span>  <span class="c1"># 用户名</span>
+        <span class="s1">&#39;PASSWORD&#39;</span><span class="p">:</span> <span class="s1">&#39;123456&#39;</span><span class="p">,</span>  <span class="c1"># 密码</span>
+        <span class="s1">&#39;OPTIONS&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;init_command&#39;</span><span class="p">:</span> <span class="s2">&quot;SET sql_mode=&#39;STRICT_TRANS_TABLES&#39;&quot;</span><span class="p">,</span>  <span class="c1"># 解决迁移时的一个警告</span>
+            <span class="s1">&#39;charset&#39;</span><span class="p">:</span> <span class="s1">&#39;utf8mb4&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;isolation_level&quot;</span><span class="p">:</span> <span class="s2">&quot;repeatable read&quot;</span><span class="p">,</span>  <span class="c1"># 隔离级别设置为可重复读取，为了迁移数据适配数据库默认Binlog=STATEMENT时报错</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>创建数据库：<code>create database if not exists dbname default character set utf8 collate utf8_general_ci;</code></p>
+<h2 id="_16">配置拆分<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<p><img alt="20210826183930" src="http://image.zuoright.com/20210826183930.png" /></p>
+<h3 id="set_base">set_base<a class="headerlink" href="#set_base" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+
+<span class="c1"># 基础配置</span>
+<span class="n">TIME_ZONE</span> <span class="o">=</span> <span class="s1">&#39;UTC&#39;</span>  <span class="c1"># 时区</span>
+<span class="n">LANGUAGE_CODE</span> <span class="o">=</span> <span class="s1">&#39;en-us&#39;</span>  <span class="c1"># 语言</span>
+
+
+<span class="c1"># 静态文件路径配置</span>
+<span class="n">STATIC_URL</span> <span class="o">=</span> <span class="s1">&#39;/static/&#39;</span>  <span class="c1"># 单独应用</span>
+<span class="n">STATICFILES_DIRS</span> <span class="o">=</span> <span class="p">[</span>  <span class="c1"># 公共</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s2">&quot;statics&quot;</span><span class="p">),</span>
+<span class="p">]</span>
+</code></pre></div>
+<h3 id="set_dev">set_dev<a class="headerlink" href="#set_dev" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">.set_base</span> <span class="kn">import</span> <span class="o">*</span>
+
+
+<span class="n">DEBUG</span><span class="o">=</span><span class="kc">True</span>
+</code></pre></div>
+<h3 id="set_prod">set_prod<a class="headerlink" href="#set_prod" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">.set_base</span> <span class="kn">import</span> <span class="o">*</span>
+
+
+<span class="n">DEBUG</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">ALLOWED_HOSTS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;*&quot;</span><span class="p">]</span>  <span class="c1"># DEBUG等于False时必需配置</span>
+</code></pre></div>
+<p>此时Django不会再提供静态文件服务</p>
+<ul>
+<li>方式1(适用于命令行启动)：<code>python manage.py runserver --insecure</code></li>
+<li>
+<p>方式2 CDN</p>
+</li>
+<li>
+<p>配置文件中先把所有注册APP分散的静态资源都收集到统一位置：<code>STATIC_ROOT = os.path.join(BASE_DIR, 'static_cdn')</code></p>
+</li>
+<li>命令行执行收集命令：<code>python manage.py collectstatic</code>，将项目用到的所有静态文件集中存放在<code>static_cdn</code>路径下</li>
+<li>
+<p>然后用Nginx提供静态资源服务</p>
+<div class="highlight"><pre><span></span><code><span class="na">location /static/ {</span>
+    <span class="na">alias /usr/share/nginx/mysite/static_cdn/;</span>
+<span class="na">}</span>
+</code></pre></div>
+</li>
+<li>
+<p>重新加载：<code>service nginx reload</code></p>
+</li>
+</ul>
+<h2 id="_17">启动<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<h3 id="_18">自带服务器命令行启动<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<p>主要是读取<code>manage.py</code>文件（项目自带，在项目根目录）</p>
+<blockquote>
+<p>可设置为命令行默认启动开发环境：<code>os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'onestep.settings.set_dev')</code></p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="c1"># 先切换到项目容器内</span>
+<span class="nb">cd</span> mysite
+<span class="c1"># 运行命令行工具manage.py启动项目，默认8000端口</span>
+<span class="c1"># 首页地址：127.0.0.1:8000</span>
+<span class="c1"># 根据默认配置启动</span>
+python manage.py runserver
+<span class="c1"># 可以更改端口</span>
+python manage.py runserver <span class="m">8888</span>
+<span class="c1"># 可以指定IP，比如监听所有服务器公开IP，0是0.0.0.0的缩写</span>
+python manage.py runserver <span class="m">0</span>:8000
+
+<span class="c1"># 指定配置文件启动</span>
+python manage.py runserver --settings<span class="o">=</span>onestep.settings.set_prod
+</code></pre></div>
+<h3 id="uwsgi">uWSGI 启动<a class="headerlink" href="#uwsgi" title="Permanent link">&para;</a></h3>
+<p>主要读取<code>wsgi.py</code>文件（项目自带，与<code>setting.py</code>同目录）</p>
+<blockquote>
+<p>可设置为uWSGI默认启动生产环境：<code>os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'onestep.settings.set_prod')</code></p>
+</blockquote>
+<div class="highlight"><pre><span></span><code>pip install uwsgi
+
+<span class="c1"># 启动，成功后访问：&lt;http://127.0.0.1:3031&gt;，ctrl+c停止</span>
+uwsgi --http :3031 --file onestep/wsgi.py
+</code></pre></div>
+<h3 id="nginx-uwsgi">Nginx + uWSGI 启动<a class="headerlink" href="#nginx-uwsgi" title="Permanent link">&para;</a></h3>
+<ul>
+<li>自建<code>uwsgi.ini</code>文件（路径自定）</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">[uwsgi]</span>
+<span class="c1">; 项目根目录</span>
+<span class="na">chdir</span> <span class="o">=</span> <span class="s">/Users/7c/zuoright/onestep_django</span>
+<span class="c1">; 指定wsgi模块下的application对象</span>
+<span class="na">module</span> <span class="o">=</span> <span class="s">onestep.wsgi:application</span>
+<span class="c1">; 对本机3031端口提供服务</span>
+<span class="na">socket</span> <span class="o">=</span> <span class="s">127.0.0.1:3031</span>
+<span class="c1">; 主进程</span>
+<span class="na">master</span> <span class="o">=</span> <span class="s">true</span>
+
+<span class="c1">; 以下字段非必需</span>
+
+<span class="c1">; 退出、重启时清理文件</span>
+<span class="na">vacuum</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">max-requests</span><span class="o">=</span><span class="s">5000</span>
+
+<span class="c1">; pid文件，用于脚本启动、停止该进程</span>
+<span class="c1">; pidfile=/tmp/uwsgi.pid</span>
+
+<span class="c1">; 日志</span>
+<span class="c1">; daemonize=/tmp/uwsgi.log</span>
+</code></pre></div>
+<ul>
+<li>修改<code>nginx.conf</code>配置</li>
+</ul>
+<div class="highlight"><pre><span></span><code>server {
+    listen       8080;
+    server_name  localhost;
+
+    location / {
+        include   uwsgi_params;
+        uwsgi_pass  127.0.0.1:3031;  和上面uwsgi配置的端口一致
+    }
+
+    location /static {
+        alias  /Users/7c/zuoright/onestep_django/static_cdn;  配置静态文件路径
+    }
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># 启动nginx</span>
+nginx
+<span class="c1"># 启动uwsgi，成功后访问：&lt;http://127.0.0.1:8000&gt;</span>
+uwsgi --ini path/uwsgi.ini
+</code></pre></div>
+                
+                  
+                    
+
+<hr>
+<div class="md-source-date">
+  <small>
+    
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2021-08-26</span>
+      
+    
+  </small>
+</div>
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../CGI/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Web Server Gateway Interface" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              Web Server Gateway Interface
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../Flask/" class="md-footer__link md-footer__link--next" aria-label="下一页: Flask" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              Flask
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2016 ~ Forever 7c
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/ZuoRight" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+      </a>
+    
+      
+      
+      <a href="mailto:zuoright@foxmail.com" target="_blank" rel="noopener" title="" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20 8-8 5-8-5V6l8 5 8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.top", "navigation.instant"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56a63758.min.js"></script>
+      
+        <script src="../../js/baidu-tongji.js"></script>
+      
+    
+  </body>
+</html>
