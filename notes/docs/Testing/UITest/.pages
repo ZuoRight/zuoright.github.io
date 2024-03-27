@@ -1,8 +1,0 @@
-# https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin
-nav:
-  - index.md
-  - Selenium.md
-  - Appium.md
-  - dom_analyze.md
-  - pom.md
-  - ...

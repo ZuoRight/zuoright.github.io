@@ -1,7 +1,0 @@
-# https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin
-nav:
-  - index.md
-  - process.md
-  - thread.md
-  - coroutine.md
-  - ...

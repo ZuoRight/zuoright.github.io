@@ -1,8 +1,0 @@
-# <https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin>
-
-nav:
-  - index.md
-  - scalability.md
-  - layer.md
-  - token.md
-  - ...

@@ -1,6 +1,0 @@
-# https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin
-nav:
-  - index.md
-  - 性能指标.md
-  - jmeter.md
-  - ...

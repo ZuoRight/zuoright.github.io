@@ -1,8 +1,0 @@
-# <https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin>
-
-nav:
-  - index.md
-  - ethers.md
-  - config.md
-  - test.md
-  - ...

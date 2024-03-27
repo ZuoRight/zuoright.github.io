@@ -1,9 +1,0 @@
-# <https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin>
-
-nav:
-  - index.md
-  - cryptography.md
-  - hd_wallet.md
-  - address.md
-  - sign.md
-  - ...

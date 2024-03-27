@@ -1,7 +1,0 @@
-# https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin
-nav:
-  - curl.md
-  - postman.md
-  - http_python.md
-  - http_js.md
-  - ...

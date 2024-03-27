@@ -1,9 +1,0 @@
-# https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin
-nav:
-  - vim.md
-  - vscode.md
-  - regex.md
-  - sed.md
-  - awk.md
-  - markdown.md
-  - ...

@@ -1,9 +1,0 @@
-# https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin
-nav:
-  - index.md
-  - terminal.md
-  - shell_index.md
-  - shell_cli.md
-  - shell_script.md
-  - ssh.md
-  - ...

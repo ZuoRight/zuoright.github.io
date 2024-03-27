@@ -1,9 +1,0 @@
-# https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin
-nav:
-  - index.md
-  - complexity_analysis.md
-  - array.md
-  - stack.md
-  - binary_search.md
-  - sorting.md
-  - ...

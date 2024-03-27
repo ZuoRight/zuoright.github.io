@@ -1,6 +1,0 @@
----
-comments: true  # 显示评论
-hide:
-  - footer  # 隐藏上一页下一页按钮
-  - feedback  # 隐藏反馈按钮
----

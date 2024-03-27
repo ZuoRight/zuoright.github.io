@@ -1,8 +1,0 @@
-# https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin
-nav:
-  - index.md
-  - L1.md
-  - L2.md
-  - L3.md
-  - L4.md
-  - ...

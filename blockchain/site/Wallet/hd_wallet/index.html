@@ -1,0 +1,2188 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Right is right, left is also right.">
+      
+      
+        <meta name="author" content="7c">
+      
+      
+        <link rel="canonical" href="https://www.zuoright.com/Wallet/hd_wallet/">
+      
+      
+        <link rel="prev" href="../cryptography/">
+      
+      
+        <link rel="next" href="../address/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.15">
+    
+    
+      
+        <title>HD Wallet - ZuoRight</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-6CVJ632G5J"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-6CVJ632G5J",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-6CVJ632G5J",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>var consent;"undefined"==typeof __md_analytics||(consent=__md_get("__consent"))&&consent.analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hd-wallet" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="https://zuoright.com" title="ZuoRight" class="md-header__button md-logo" aria-label="ZuoRight" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 14.27 10.64 13A11.242 11.242 0 0 0 5 10.18v6.95c2.61.34 5 1.34 7 2.82 2-1.48 4.39-2.48 7-2.82v-6.95c-2.16.39-4.09 1.39-5.64 2.82M19 8.15c.65-.1 1.32-.15 2-.15v11c-3.5 0-6.64 1.35-9 3.54C9.64 20.35 6.5 19 3 19V8c.68 0 1.35.05 2 .15 2.69.41 5.1 1.63 7 3.39 1.9-1.76 4.31-2.98 7-3.39M12 6c.27 0 .5-.1.71-.29.19-.21.29-.44.29-.71s-.1-.5-.29-.71C12.5 4.11 12.27 4 12 4s-.5.11-.71.29c-.18.21-.29.45-.29.71s.11.5.29.71c.21.19.45.29.71.29m2.12 1.12a2.997 2.997 0 1 1-4.24-4.24 2.997 2.997 0 1 1 4.24 4.24Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ZuoRight
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              HD Wallet
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://zuoright.com" title="ZuoRight" class="md-nav__button md-logo" aria-label="ZuoRight" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 14.27 10.64 13A11.242 11.242 0 0 0 5 10.18v6.95c2.61.34 5 1.34 7 2.82 2-1.48 4.39-2.48 7-2.82v-6.95c-2.16.39-4.09 1.39-5.64 2.82M19 8.15c.65-.1 1.32-.15 2-.15v11c-3.5 0-6.64 1.35-9 3.54C9.64 20.35 6.5 19 3 19V8c.68 0 1.35.05 2 .15 2.69.41 5.1 1.63 7 3.39 1.9-1.76 4.31-2.98 7-3.39M12 6c.27 0 .5-.1.71-.29.19-.21.29-.44.29-.71s-.1-.5-.29-.71C12.5 4.11 12.27 4 12 4s-.5.11-.71.29c-.18.21-.29.45-.29.71s.11.5.29.71c.21.19.45.29.71.29m2.12 1.12a2.997 2.997 0 1 1-4.24-4.24 2.997 2.997 0 1 1 4.24 4.24Z"/></svg>
+
+    </a>
+    ZuoRight
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    引言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bitcoin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bitcoin
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Ethereum/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ethereum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Wallet
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Wallet
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    引言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cryptography/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cryptography
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    HD Wallet
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    HD Wallet
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      在线工具生成
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python 生成
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python 生成">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#entropy-mnemonic" class="md-nav__link">
+    <span class="md-ellipsis">
+      entropy =&gt; mnemonic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mnemonic-seed" class="md-nav__link">
+    <span class="md-ellipsis">
+      mnemonic =&gt; seed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seed-root-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      seed =&gt; root key
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#root_key-sub_private_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      root_key =&gt; sub_private_key
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#private_key-public_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      private_key =&gt; public_key
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public_key-address" class="md-nav__link">
+    <span class="md-ellipsis">
+      public_key =&gt; address
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etherjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ether.js 生成
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../address/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    钱包地址
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sign/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sign
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    账户模型
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            账户模型
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%B4%A6%E6%88%B7%E6%A8%A1%E5%9E%8B/account/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    普通账户模型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%B4%A6%E6%88%B7%E6%A8%A1%E5%9E%8B/utxo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UTXO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    可扩展性
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            可扩展性
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%8F%AF%E6%89%A9%E5%B1%95%E6%80%A7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    引言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%8F%AF%E6%89%A9%E5%B1%95%E6%80%A7/scalability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    比特币扩展
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%8F%AF%E6%89%A9%E5%B1%95%E6%80%A7/layer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    以太坊分层
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%8F%AF%E6%89%A9%E5%B1%95%E6%80%A7/token/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Token
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    DApp
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            DApp
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DApp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    引言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DApp/testnet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    测试网
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DApp/graph/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graph
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DApp/OpenZeppelin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenZeppelin
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_5" id="__nav_7_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Oracles
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_5">
+            <span class="md-nav__icon md-icon"></span>
+            Oracles
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DApp/Oracles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    预言机
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DApp/Oracles/price_feed/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Price Feed
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DApp/Oracles/random/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Random
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Solidity
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Solidity
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Solidity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    引言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Solidity/solc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Solc
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Solidity/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据类型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Solidity/%E8%AF%AD%E5%8F%A5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    语句
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Solidity/%E5%87%BD%E6%95%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    函数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Solidity/tx/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transaction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Solidity/%E5%90%88%E7%BA%A6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    合约
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Solidity/library/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    库
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Solidity/evm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EVM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Brownie
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Brownie
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Brownie/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    引言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Brownie/web3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    web3.py
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Brownie/networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    brownie networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Brownie/account/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    账户管理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Brownie/%E5%90%88%E7%BA%A6%E4%BA%A4%E4%BA%92/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    合约交互
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Brownie/test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    测试
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Hardhat
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Hardhat
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Hardhat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    引言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Hardhat/ethers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ethers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Hardhat/config/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    hardhat-config
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Hardhat/test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    测试
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      在线工具生成
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python 生成
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python 生成">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#entropy-mnemonic" class="md-nav__link">
+    <span class="md-ellipsis">
+      entropy =&gt; mnemonic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mnemonic-seed" class="md-nav__link">
+    <span class="md-ellipsis">
+      mnemonic =&gt; seed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seed-root-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      seed =&gt; root key
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#root_key-sub_private_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      root_key =&gt; sub_private_key
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#private_key-public_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      private_key =&gt; public_key
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public_key-address" class="md-nav__link">
+    <span class="md-ellipsis">
+      public_key =&gt; address
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etherjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ether.js 生成
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="hd-wallet">HD Wallet<a class="headerlink" href="#hd-wallet" title="Permanent link">&para;</a></h1>
+<ul>
+<li>BIP32 — 定义分层确定性钱包（Hierarchical Deterministic Wallets）</li>
+<li>BIP44 — 定义HD钱包多账户层次结构</li>
+<li>BIP39 — 使用助记词（Mnemonic）来生成确定性密钥，根据助记词即可恢复钱包，也SRP(Secret Recovery Phrase)</li>
+</ul>
+<p>在 BIP32 推出之前，用户需要记录一堆的私钥才能管理很多账户，BIP32 提出可以用一个根密钥（也叫根扩展密钥）根据某种确定性算法派生出多个子密钥，更方便的管理多个账户，即</p>
+<ol>
+<li>所有账户都源自一个根密钥（分层）</li>
+<li>给定根密钥，所有子账户都可以可靠地重新计算（确定性）</li>
+</ol>
+<p>相当于管理一个扩展私钥（xprv），即可拥有 N 个子私钥，继而拥有多个钱包账户，通过一个扩展公钥（xpub）即可查询账户总余额</p>
+<h2 id="_1">在线工具生成<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://iancoleman.io/bip39/">https://iancoleman.io/bip39/</a></li>
+<li><a href="https://bip39.onekey.so/">https://bip39.onekey.so/</a></li>
+</ul>
+<p><a class="glightbox" href="https://image.zuoright.com/20231026000509.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="20231026000509" src="https://image.zuoright.com/20231026000509.png" /></a></p>
+<p><a class="glightbox" href="https://image.zuoright.com/20231026000641.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="20231026000641" src="https://image.zuoright.com/20231026000641.png" /></a></p>
+<h2 id="python">Python 生成<a class="headerlink" href="#python" title="Permanent link">&para;</a></h2>
+<p>根据第BIP39，首先需要一个随机数，也称为熵</p>
+<p>熵的随机性一定要高，否则就可以被暴力破解，通常要求位数介于 128～256bits 之间，且需要是 32 的倍数，即：<code>128, 160, 192, 224, 256</code></p>
+<p>每 32bits 增加三个助记词，所以熵越大，对应的助记词个数越多，即：<code>12, 15, 18, 21, 24</code></p>
+<p>比如常用的 128bits，有 2^128 种可能性，对应有 12 个助记词</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">bitarray</span> <span class="kn">import</span> <span class="n">bitarray</span>
+
+<span class="c1"># 设置熵为128bits，8bits=1Bytes，128bits=16Bytes</span>
+<span class="n">entropy_bit_size</span> <span class="o">=</span> <span class="mi">128</span>
+
+<span class="c1"># 生成一个不可预测的(unpredictable)随机字节串</span>
+<span class="n">entropy_bytes</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">urandom</span><span class="p">(</span><span class="n">entropy_bit_size</span> <span class="o">//</span> <span class="mi">8</span><span class="p">)</span>
+<span class="c1"># b&#39;\xab9k\x1e\x00\xca\tdz\x1f\xb7\xd3\x8d\x06\xe7\xca&#39;</span>
+<span class="c1"># len(entropy_bytes) == 16</span>
+
+<span class="c1"># 将随机16字节串转为128位二进制格式的熵</span>
+<span class="n">entropy_bits</span> <span class="o">=</span> <span class="n">bitarray</span><span class="p">()</span>
+<span class="n">entropy_bits</span><span class="o">.</span><span class="n">frombytes</span><span class="p">(</span><span class="n">entropy_bytes</span><span class="p">)</span>
+<span class="c1"># bitarray(&#39;101111000...011111111001010&#39;)</span>
+</code></pre></div>
+<p>熵如果是128bits，需要对应12个助记词，但128并不能被12整除，此时需要在末尾增加校验和 <code>checksum</code> 来补位</p>
+<p>校验和的长度取决于熵的大小：<code>checksum_length = entropy_bit_size // 32</code>，即 4 位</p>
+<p>然后取 sha256(entropy_bytes) 摘要的二进制结果的前 4 位作为补到 entropy_bits 后</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">hashlib</span>
+
+<span class="n">hash_bytes</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">entropy_bytes</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>  <span class="c1"># 256bits</span>
+<span class="c1"># b&#39;\xacK#\x93I$\x05b\x0b6\...\xbe\xe9%\xa0\xd7\xa3\x9aDs\xb2&#39;</span>
+
+<span class="c1"># 转成二进制</span>
+<span class="n">hash_bits</span> <span class="o">=</span> <span class="n">bitarray</span><span class="p">()</span>
+<span class="n">hash_bits</span><span class="o">.</span><span class="n">frombytes</span><span class="p">(</span><span class="n">hash_bytes</span><span class="p">)</span>
+<span class="c1"># bitarray(&#39;1010110001001011001...01000111010&#39;)</span>
+
+<span class="c1"># 需要补4bits凑成可被12整除的132bits</span>
+<span class="n">checksum_length</span> <span class="o">=</span> <span class="n">entropy_bit_size</span> <span class="o">//</span> <span class="mi">32</span>
+<span class="n">checksum</span> <span class="o">=</span> <span class="n">hash_bits</span><span class="p">[:</span><span class="n">checksum_length</span><span class="p">]</span>  <span class="c1"># 取前4位，1010</span>
+<span class="n">entropy_bits</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">checksum</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="entropy-mnemonic">entropy =&gt; mnemonic<a class="headerlink" href="#entropy-mnemonic" title="Permanent link">&para;</a></h3>
+<p>将 132bits 的 <code>熵 + 校验和</code> 平分成12组，每组 11bits (132 // 12) ，被称之为 magic number，然后将二进制的 magic number 转换为十进制整数，即得到12个助记词的索引</p>
+<p>标准的助记词列表：<a href="https://github.com/bitcoin/bips/blob/master/bip-0039/bip-0039-wordlists.md">https://github.com/bitcoin/bips/blob/master/bip-0039/bip-0039-wordlists.md</a></p>
+<p>有不同语言的版本，但通常使用英文，每种语言都包含 2048 个助记词，每个助记词对应一个索引</p>
+<blockquote>
+<p>虽然可以自定义助记词列表，但由于不符合 BIP39，可能无法导入常见的钱包中</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">bitarray.util</span> <span class="kn">import</span> <span class="n">ba2int</span>
+
+<span class="c1"># magic number list</span>
+<span class="n">grouped_bits</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">entropy_bits</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="mi">11</span><span class="p">:</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">11</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="c1"># 助记词索引列表</span>
+<span class="n">indices</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">ba2int</span><span class="p">(</span><span class="n">ba</span><span class="p">)</span> <span class="k">for</span> <span class="n">ba</span> <span class="ow">in</span> <span class="n">grouped_bits</span><span class="p">)</span>
+
+<span class="c1"># 假设使用English助记词列表</span>
+<span class="n">english_word_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;abandon&#39;</span><span class="p">,</span> <span class="s1">&#39;ability&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="s1">&#39;zone&#39;</span><span class="p">,</span> <span class="s1">&#39;zoo&#39;</span><span class="p">]</span>
+<span class="n">mnemonic_words</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">english_word_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">indices</span><span class="p">)</span>
+<span class="c1"># (&#39;face&#39;, &#39;business&#39;, &#39;large&#39;, &#39;tissue&#39;, &#39;print&#39;, &#39;box&#39;, &#39;fix&#39;, &#39;maple&#39;, &#39;arena&#39;, &#39;help&#39;, &#39;critic&#39;, &#39;border&#39;)</span>
+</code></pre></div>
+<h3 id="mnemonic-seed">mnemonic =&gt; seed<a class="headerlink" href="#mnemonic-seed" title="Permanent link">&para;</a></h3>
+<p>助记词只有转化为种子才可以派生出私钥和公钥</p>
+<p>种子是根据助记词使用 <code>PBKDF2</code>（Password-Based Key Derivation Function）算法生成的 512bits 数，通常表示为 64Bytes 的 16 进制形式</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">hashlib</span>
+
+<span class="n">passphrase</span> <span class="o">=</span> <span class="s2">&quot;you-make-this-up&quot;</span>  <span class="c1"># 自定义密码，可默认为空</span>
+<span class="n">salt</span> <span class="o">=</span> <span class="s2">&quot;mnemonic&quot;</span> <span class="o">+</span> <span class="n">passphrase</span>  <span class="c1"># 盐，进一步提高钱包的安全性</span>
+
+<span class="c1"># 将12个助记词拼接为以空格分隔的字符串形式</span>
+<span class="n">mnemonic_string</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">mnemonic_words</span><span class="p">)</span>  <span class="c1"># &#39;across abstract shine ... uphold already club&#39;</span>
+
+<span class="n">seed</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">pbkdf2_hmac</span><span class="p">(</span>
+    <span class="s2">&quot;sha512&quot;</span><span class="p">,</span>  <span class="c1"># 伪随机函数：HMAC-SHA512</span>
+    <span class="n">mnemonic_string</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">),</span>  <span class="c1"># 助记词</span>
+    <span class="n">salt</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">),</span>  <span class="c1"># salt</span>
+    <span class="mi">2048</span>  <span class="c1"># 哈希函数将运行的迭代次数</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>  <span class="c1"># b&#39;\xcd@\xd0}\xbc\x17\xd6H\x00\x1c\xdc...&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">seed</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>  <span class="c1"># cd40d07dbc17d648001cdc84473be584...</span>
+</code></pre></div>
+<h3 id="seed-root-key">seed =&gt; root key<a class="headerlink" href="#seed-root-key" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">binascii</span>
+<span class="kn">import</span> <span class="nn">hmac</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>
+
+<span class="c1"># the HMAC-SHA512 `key` and `data` must be Bytes:</span>
+<span class="n">seed_bytes</span> <span class="o">=</span> <span class="n">binascii</span><span class="o">.</span><span class="n">unhexlify</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+<span class="c1"># I = HMAC-SHA512(Key = “Bitcoin seed”, Data = seed)</span>
+<span class="n">I</span> <span class="o">=</span> <span class="n">hmac</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;Bitcoin seed&#39;</span><span class="p">,</span> <span class="n">seed_bytes</span><span class="p">,</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha512</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+<span class="c1"># Split I into two 32-byte sequences, L and R.</span>
+<span class="n">L</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">I</span><span class="p">[:</span><span class="mi">32</span><span class="p">],</span> <span class="n">I</span><span class="p">[</span><span class="mi">32</span><span class="p">:]</span>
+<span class="c1"># Use parse256(L) as master secret key, and R as master chain code.</span>
+<span class="n">master_private_key</span> <span class="o">=</span> <span class="nb">int</span><span class="o">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="s1">&#39;big&#39;</span><span class="p">)</span>
+<span class="n">master_chain_code</span> <span class="o">=</span> <span class="n">R</span>  <span class="c1"># 用作熵</span>
+</code></pre></div>
+<p>root key 通常表示为扩展私钥（xprv开头），根据BIP32，extended private keys are a Base58 encoding of the private key, chain code, and some additional metadata.</p>
+<blockquote>
+<p>Base58是专为Bitcoin设计的，相比于Base64，去除了<code>0, O, I, l</code>等容易被误认的字符</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">base58</span>
+
+<span class="n">VERSION_BYTES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;mainnet_public&#39;</span><span class="p">:</span> <span class="n">binascii</span><span class="o">.</span><span class="n">unhexlify</span><span class="p">(</span><span class="s1">&#39;0488b21e&#39;</span><span class="p">),</span>
+    <span class="s1">&#39;mainnet_private&#39;</span><span class="p">:</span> <span class="n">binascii</span><span class="o">.</span><span class="n">unhexlify</span><span class="p">(</span><span class="s1">&#39;0488ade4&#39;</span><span class="p">),</span>
+    <span class="s1">&#39;testnet_public&#39;</span><span class="p">:</span> <span class="n">binascii</span><span class="o">.</span><span class="n">unhexlify</span><span class="p">(</span><span class="s1">&#39;043587cf&#39;</span><span class="p">),</span>
+    <span class="s1">&#39;testnet_private&#39;</span><span class="p">:</span> <span class="n">binascii</span><span class="o">.</span><span class="n">unhexlify</span><span class="p">(</span><span class="s1">&#39;04358394&#39;</span><span class="p">),</span>
+<span class="p">}</span>
+<span class="n">version_bytes</span> <span class="o">=</span> <span class="n">VERSION_BYTES</span><span class="p">[</span><span class="s1">&#39;mainnet_private&#39;</span><span class="p">]</span>
+<span class="n">depth_byte</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x00</span><span class="s1">&#39;</span>
+<span class="n">parent_fingerprint</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x00</span><span class="s1">&#39;</span> <span class="o">*</span> <span class="mi">4</span>
+<span class="n">child_number_bytes</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x00</span><span class="s1">&#39;</span> <span class="o">*</span> <span class="mi">4</span>
+<span class="n">key_bytes</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x00</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">L</span>
+<span class="n">all_parts</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">version_bytes</span><span class="p">,</span>      <span class="c1"># 4 Bytes 版本字节</span>
+    <span class="n">depth_byte</span><span class="p">,</span>         <span class="c1"># 1 byte 深度</span>
+    <span class="n">parent_fingerprint</span><span class="p">,</span>  <span class="c1"># 4 Bytes 父密钥指纹</span>
+    <span class="n">child_number_bytes</span><span class="p">,</span> <span class="c1"># 4 Bytes 子编号</span>
+    <span class="n">master_chain_code</span><span class="p">,</span>  <span class="c1"># 32 Bytes 熵</span>
+    <span class="n">key_bytes</span><span class="p">,</span>          <span class="c1"># 33 Bytes 公钥或私钥数据</span>
+<span class="p">)</span>
+<span class="n">all_bytes</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">all_parts</span><span class="p">)</span>
+<span class="n">root_key</span> <span class="o">=</span> <span class="n">base58</span><span class="o">.</span><span class="n">b58encode_check</span><span class="p">(</span><span class="n">all_bytes</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span>  <span class="c1"># xprv9s21ZrQH143K...T2emdEXVYsCzC2U</span>
+</code></pre></div>
+<h3 id="root_key-sub_private_key">root_key =&gt; sub_private_key<a class="headerlink" href="#root_key-sub_private_key" title="Permanent link">&para;</a></h3>
+<p>根据派生路径生成子密钥</p>
+<p><a class="glightbox" href="https://image.zuoright.com/20231025205912.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="20231025205912" src="https://image.zuoright.com/20231025205912.png" /></a></p>
+<p>扩展密钥每一层可派生的数量被限制在0～232个账户，但没有限制可派生的层数</p>
+<p>BIP44 为 BIP32 的派生路径提供了一套通用规范，适配比特币、以太坊等</p>
+<p>这一套规范包含六层，每层之间用斜线分割，比如以太坊的默认派生路径为：<code>m/44'/60'/0'/0/0</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># m 是固定的，表示根扩展密钥</span>
+<span class="c1"># &#39; 表示该值已硬化，防止通过子私钥反推出父私钥</span>
+m<span class="w"> </span>/<span class="w"> </span>purpose’<span class="w"> </span>/<span class="w"> </span>coin_type’<span class="w"> </span>/<span class="w"> </span>account’<span class="w"> </span>/<span class="w"> </span>change<span class="w"> </span>/<span class="w"> </span>address_index
+<span class="c1"># purpose’ 固定为 44，表示遵循 BIP44 标准</span>
+<span class="c1"># coin_type 表示代币类型，比特币主网为0，测试网为1，以太坊主网为60</span>
+<span class="c1"># account 表示不同类型的钱包用户，比如同一个公司不同部门，从0开始索引</span>
+<span class="c1"># change 是否为外部链，主要用于比特币，以太坊通常为0</span>
+<span class="c1"># address_index 账户索引，从0开始</span>
+</code></pre></div>
+<p>Extended keys can be identified by the Hash160 (RIPEMD160 after SHA256) of the serialized ECDSA public key K, ignoring the chain code. […] The first 32 bits of the identifier are called the key fingerprint. […] Note that the fingerprint of the parent only serves as a fast way to detect parent and child nodes in software…</p>
+<h3 id="private_key-public_key">private_key =&gt; public_key<a class="headerlink" href="#private_key-public_key" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">p</span> <span class="o">=</span> <span class="n">curve_point_from_int</span><span class="p">(</span><span class="n">private_key</span><span class="p">)</span>
+<span class="n">public_key_bytes</span> <span class="o">=</span> <span class="n">serialize_curve_point</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;public key: 0x</span><span class="si">{</span><span class="n">public_key_bytes</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>  <span class="c1"># public key: 0x024c8f4044470bd42b81a...</span>
+</code></pre></div>
+<h3 id="public_key-address">public_key =&gt; address<a class="headerlink" href="#public_key-address" title="Permanent link">&para;</a></h3>
+<p>a public address is the last 20 Bytes of the Keccak-256 hash of the public key points</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">eth_utils</span> <span class="kn">import</span> <span class="n">keccak</span>
+
+<span class="n">digest</span> <span class="o">=</span> <span class="n">keccak</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="s1">&#39;big&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">y</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="s1">&#39;big&#39;</span><span class="p">))</span>
+<span class="n">address</span> <span class="o">=</span> <span class="s1">&#39;0x&#39;</span> <span class="o">+</span> <span class="n">digest</span><span class="p">[</span><span class="o">-</span><span class="mi">20</span><span class="p">:]</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;public address: </span><span class="si">{</span><span class="n">address</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>  <span class="c1"># public address: 0xbbec2620cb01adae3f96e1fa39f997f06bfb7ca0</span>
+</code></pre></div>
+<h2 id="etherjs">Ether.js 生成<a class="headerlink" href="#etherjs" title="Permanent link">&para;</a></h2>
+<ul>
+<li>生成随机助记词</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1">// import { ethers } from &#39;ethers&#39;;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">ethers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;ethers&#39;</span><span class="p">)</span>
+
+<span class="c1">// 生成随机助记词索引，等价于熵</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">entropy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ethers</span><span class="p">.</span><span class="nx">randomBytes</span><span class="p">(</span><span class="mf">32</span><span class="p">)</span>
+<span class="sb">`</span>
+<span class="sb">Uint8Array(32) [</span>
+<span class="sb">    146, 149,  59,  53, 253,  65, 158,</span>
+<span class="sb">    225, 172, 172,  75, 118, 178,  15,</span>
+<span class="sb">    235, 114, 233,  26, 196, 105,  13,</span>
+<span class="sb">    176, 130, 150, 239, 159, 211, 181,</span>
+<span class="sb">    125, 246, 252, 243</span>
+<span class="sb">]</span>
+<span class="sb">`</span>
+
+<span class="c1">// 转为助记词</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">mnemonic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ethers</span><span class="p">.</span><span class="nx">Mnemonic</span><span class="p">.</span><span class="nx">entropyToPhrase</span><span class="p">(</span><span class="nx">entropy</span><span class="p">)</span>
+<span class="s1">&#39;myth prefer sniff whisper boring ignore razor maximum issue motor width total museum giraffe picnic render little resist tree polar fit window video grab&#39;</span>
+</code></pre></div>
+<ul>
+<li>创建HD钱包</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">hdNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ethers</span><span class="p">.</span><span class="nx">HDNodeWallet</span><span class="p">.</span><span class="nx">fromPhrase</span><span class="p">(</span><span class="nx">mnemonic</span><span class="p">)</span>
+<span class="sb">`</span>
+<span class="sb">HDNodeWallet {</span>
+<span class="sb">    provider: null,</span>
+<span class="sb">    address: &#39;0xE46A4BD6908b05d60E49cb4E52b2425C4d9742B3&#39;,</span>
+<span class="sb">    publicKey: &#39;0x02bedf3b217145b9ac7d695adead9bfbe13475b7f25c8f4c7295d6addd3aff1e36&#39;,</span>
+<span class="sb">    fingerprint: &#39;0x57e4f425&#39;,</span>
+<span class="sb">    parentFingerprint: &#39;0xbddc8a6c&#39;,</span>
+<span class="sb">    mnemonic: Mnemonic {</span>
+<span class="sb">        phrase: &#39;myth prefer sniff whisper boring ignore razor maximum issue motor width total museum giraffe picnic render little resist tree polar fit window video grab&#39;,</span>
+<span class="sb">        password: &#39;&#39;,</span>
+<span class="sb">        wordlist: LangEn { locale: &#39;en&#39; },</span>
+<span class="sb">        entropy: &#39;0x92953b35fd419ee1acac4b76b20feb72e91ac4690db08296ef9fd3b57df6fcf3&#39;</span>
+<span class="sb">    },</span>
+<span class="sb">    chainCode: &#39;0xd2148e93be5aa3690e17d7f71614d33064a663eded00d5f4513b34ddec16e6ef&#39;,</span>
+<span class="sb">    path: &quot;m/44&#39;/60&#39;/0&#39;/0/0&quot;,</span>
+<span class="sb">    index: 0,</span>
+<span class="sb">    depth: 5</span>
+<span class="sb">}</span>
+<span class="sb">`</span>
+
+<span class="c1">// 方式2</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">hdNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ethers</span><span class="p">.</span><span class="nx">Wallet</span><span class="p">.</span><span class="nx">fromPhrase</span><span class="p">(</span><span class="nx">mnemonic</span><span class="p">)</span>
+
+<span class="c1">// 方式3，直接生成随机钱包</span>
+<span class="nx">ethers</span><span class="p">.</span><span class="nx">Wallet</span><span class="p">.</span><span class="nx">createRandom</span><span class="p">()</span>
+<span class="sb">`</span>
+<span class="sb">HDNodeWallet {</span>
+<span class="sb">    provider: null,</span>
+<span class="sb">    address: &#39;0x69B619CdedB9b7C46efDed3d2FA0C7d9083D0fd8&#39;,</span>
+<span class="sb">    publicKey: &#39;0x02d474c5d7fa9dedc3707203245368a11f541fb1efe3983eabb3dd6d1a95af7256&#39;,</span>
+<span class="sb">    fingerprint: &#39;0x013da586&#39;,</span>
+<span class="sb">    parentFingerprint: &#39;0x0e24401f&#39;,</span>
+<span class="sb">    mnemonic: Mnemonic {</span>
+<span class="sb">        phrase: &#39;quick large faculty bitter bunker produce identify shine toe staff oil faith&#39;,</span>
+<span class="sb">        password: &#39;&#39;,</span>
+<span class="sb">        wordlist: LangEn { locale: &#39;en&#39; },</span>
+<span class="sb">        entropy: &#39;0xafafa5468b61e7575c262fe39a826729&#39;</span>
+<span class="sb">    },</span>
+<span class="sb">    chainCode: &#39;0x92f9e2c958658f67d19ea0a82ed4f1d7fc8a16b0fefb40eb7716a4351ae101f7&#39;,</span>
+<span class="sb">    path: &quot;m/44&#39;/60&#39;/0&#39;/0/0&quot;,</span>
+<span class="sb">    index: 0,</span>
+<span class="sb">    depth: 5</span>
+<span class="sb">}</span>
+<span class="sb">`</span>
+</code></pre></div>
+<ul>
+<li>生成靓号地址</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1">// 靓号地址不仅好看，而且可以节省 Gas Fee</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ethers</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;ethers&quot;</span><span class="p">;</span>
+
+<span class="kd">var</span><span class="w"> </span><span class="nx">wallet</span><span class="w">  </span><span class="c1">// 钱包</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">regex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sr">/^0x000.*$/</span><span class="w">  </span><span class="c1">// 正则匹配前3位都是0的地址</span>
+
+<span class="kd">var</span><span class="w"> </span><span class="nx">isValid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+<span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="nx">isValid</span><span class="p">){</span>
+<span class="w">    </span><span class="nx">wallet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ethers</span><span class="p">.</span><span class="nx">Wallet</span><span class="p">.</span><span class="nx">createRandom</span><span class="p">()</span><span class="w">  </span><span class="c1">// 随机生成钱包</span>
+<span class="w">    </span><span class="nx">isValid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">regex</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">wallet</span><span class="p">.</span><span class="nx">address</span><span class="p">)</span><span class="w">  </span><span class="c1">// 选出符合条件的地址后停止循环</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">wallet</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`靓号地址：</span><span class="si">${</span><span class="nx">wallet</span><span class="p">.</span><span class="nx">address</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`靓号私钥：</span><span class="si">${</span><span class="nx">wallet</span><span class="p">.</span><span class="nx">privateKey</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li>派生20个钱包地址</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1">// 只需要切换派生路径最后一层的 address_index，就可以从 hdNode 派生出新钱包</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">basePath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;m/44&#39;/60&#39;/0&#39;/0&quot;</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">wallets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">20</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">hdNodeNew</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">hdNode</span><span class="p">.</span><span class="nx">derivePath</span><span class="p">(</span><span class="nx">basePath</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;/&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">i</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">walletNew</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">ethers</span><span class="p">.</span><span class="nx">Wallet</span><span class="p">(</span><span class="nx">hdNodeNew</span><span class="p">.</span><span class="nx">privateKey</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`第 </span><span class="si">${</span><span class="nx">i</span><span class="o">+</span><span class="mf">1</span><span class="si">}</span><span class="sb"> 个钱包地址： </span><span class="si">${</span><span class="nx">walletNew</span><span class="p">.</span><span class="nx">address</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">wallets</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">walletNew</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="sb">`</span>
+<span class="sb">第 1 个钱包地址： 0x9F17034925c638D0b0C886c0ad1863ff330e35c6</span>
+<span class="sb">第 2 个钱包地址： 0xB0AD00eB4473291ca82c27B79b72e3045C01A4C5</span>
+<span class="sb">第 3 个钱包地址： 0xb75B8f716617bf67b2eDE9AAa4801e09A75ABDC5</span>
+<span class="sb">第 4 个钱包地址： 0x195D66FAE77e9e2B0A455Fc55b7ADB91D609bAB6</span>
+<span class="sb">第 5 个钱包地址： 0xC3659A3A7DC8620a7c8E8511DB85D47D1c6296B8</span>
+<span class="sb">第 6 个钱包地址： 0x7b18DCc37350FF04e6a2CF433eC9964AeCcD49fF</span>
+<span class="sb">第 7 个钱包地址： 0xDAb049bf753A3034E7b3C33a30E88aEd2A290693</span>
+<span class="sb">第 8 个钱包地址： 0xC97e301B5cbFC41B19d83675fb54EC5b04bee024</span>
+<span class="sb">第 9 个钱包地址： 0x244C436E2f90Fa58CC16206F691cBdc2C38993E2</span>
+<span class="sb">第 10 个钱包地址： 0x96531338Bf1F324c9Ff0F045c8a7b41763963c7D</span>
+<span class="sb">第 11 个钱包地址： 0xaDE981d55A8416BD4d54C00C635918C5A21c10d9</span>
+<span class="sb">第 12 个钱包地址： 0x99cfba6992f59DC2311B841eb043Fd3a406D3E9f</span>
+<span class="sb">第 13 个钱包地址： 0xdEAE53329b05894B1ed75b9b2aE6FE1CE15f7CAB</span>
+<span class="sb">第 14 个钱包地址： 0xd77d6EEbd6F3ADf40D626D71f054027738900F50</span>
+<span class="sb">第 15 个钱包地址： 0x2cB9D101788578691C3249344fBb5b769259Bd11</span>
+<span class="sb">第 16 个钱包地址： 0x90cc35330297E1eDA46AaA01A0F1a09D8a1978C4</span>
+<span class="sb">第 17 个钱包地址： 0x099320507920A2257c894A42Dd3f379B33969893</span>
+<span class="sb">第 18 个钱包地址： 0x133326eC80078bEC7aEA6f77c6F78f4049c6a75a</span>
+<span class="sb">第 19 个钱包地址： 0xd4A19Bff496B7b0100A8d5f2A8D9f38302Bd0C1a</span>
+<span class="sb">第 20 个钱包地址： 0x1a93BA5C762B51f58538f81a46558352781c0564</span>
+<span class="sb">`</span>
+</code></pre></div>
+<ul>
+<li>将钱包保存为加密Json数据</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">pwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;password&quot;</span><span class="w">  </span><span class="c1">// 设置加密Json用的密码</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">json</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">hdNode</span><span class="p">.</span><span class="nx">encrypt</span><span class="p">(</span><span class="nx">pwd</span><span class="p">)</span>
+<span class="sb">`{&quot;address&quot;:&quot;e46a4bd6908b05d60e49cb4e52b2425c4d9742b3&quot;,&quot;id&quot;:&quot;775c9c19-c95c-48bb-8fc0-b13f70e0034a&quot;,&quot;version&quot;:3,&quot;Crypto&quot;:{&quot;cipher&quot;:&quot;aes-128-ctr&quot;,&quot;cipherparams&quot;:{&quot;iv&quot;:&quot;a78beec4021ca1be6e6f0147b25d9f4a&quot;},&quot;ciphertext&quot;:&quot;a4efc0ca71596530722f97ffcab7c08883b822b4aec4fc350e79e21b012bbefc&quot;,&quot;kdf&quot;:&quot;scrypt&quot;,&quot;kdfparams&quot;:{&quot;salt&quot;:&quot;573fcd06d419c5122f54678bacf9055eb7c9edeb431a70e6d2780b0187afa662&quot;,&quot;n&quot;:131072,&quot;dklen&quot;:32,&quot;p&quot;:1,&quot;r&quot;:8},&quot;mac&quot;:&quot;a562d79e62ea3329b7ad41caaf301e93ff022e68883e5fa13ae6beed16457544&quot;},&quot;x-ethers&quot;:{&quot;client&quot;:&quot;ethers/6.7.0&quot;,&quot;gethFilename&quot;:&quot;UTC--2023-10-25T14-43-29.0Z--e46a4bd6908b05d60e49cb4e52b2425c4d9742b3&quot;,&quot;path&quot;:&quot;m/44&#39;/60&#39;/0&#39;/0/0&quot;,&quot;locale&quot;:&quot;en&quot;,&quot;mnemonicCounter&quot;:&quot;bc4e276f1b2958826bb7f53e21629e12&quot;,&quot;mnemonicCiphertext&quot;:&quot;ce9524a3fbccd4ad2a6597c094d418ceaba6e94ad4badcca4ea619f7208551c8&quot;,&quot;version&quot;:&quot;0.1&quot;}}`</span>
+</code></pre></div>
+<ul>
+<li>从加密Json中读取钱包</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">wallet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">ethers</span><span class="p">.</span><span class="nx">Wallet</span><span class="p">.</span><span class="nx">fromEncryptedJson</span><span class="p">(</span><span class="nx">json</span><span class="p">,</span><span class="w"> </span><span class="nx">pwd</span><span class="p">);</span>
+</code></pre></div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-10-28</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        此页面内容可还行？
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="有用的" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 9v12H1V9h4m4 12a2 2 0 0 1-2-2V9c0-.55.22-1.05.59-1.41L14.17 1l1.06 1.06c.27.27.44.64.44 1.05l-.03.32L14.69 8H21a2 2 0 0 1 2 2v2c0 .26-.05.5-.14.73l-3.02 7.05C19.54 20.5 18.83 21 18 21H9m0-2h9.03L21 12v-2h-8.79l1.13-5.32L9 9.03V19Z"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="没啥用" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 15V3h4v12h-4M15 3a2 2 0 0 1 2 2v10c0 .55-.22 1.05-.59 1.41L9.83 23l-1.06-1.06c-.27-.27-.44-.64-.44-1.06l.03-.31.95-4.57H3a2 2 0 0 1-2-2v-2c0-.26.05-.5.14-.73l3.02-7.05C4.46 3.5 5.17 3 6 3h9m0 2H5.97L3 12v2h8.78l-1.13 5.32L15 14.97V5Z"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              感谢反馈，欢迎随时<a href="mailto:zuoright@foxmail.com" target=_blank>发邮件</a>跟我交流
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              感谢反馈，欢迎<a href="mailto:zuoright@foxmail.com" target=_blank>发邮件</a>给我提出改进建议
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2016 ~ Forever 7c
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/ZuoRight" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:zuoright@foxmail.com" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20 8-8 5-8-5V6l8 5 8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+  
+    
+  
+
+
+
+
+  
+
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="analytics" checked>
+          <span class="task-list-indicator"></span>
+          Google Analytics
+        </label>
+      </li>
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">同意</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">管理设定</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.top", "header.autohide", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.bd41221c.min.js"></script>
+      
+    
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>
