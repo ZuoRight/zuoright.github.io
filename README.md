@@ -1,3 +1,3 @@
-# zuoright.com
+# index
 
-index
+<https://zuoright.com>
