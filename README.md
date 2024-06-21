@@ -1,2 +1,3 @@
-# zuoright.github.io
+# zuoright.com
+
 index
