@@ -24,6 +24,9 @@
         <hr class="mx-auto border-primary-subtle">
         <ul class="nav nav-pills justify-content-center" role="tablist">
             <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="pill" href="#d">2023</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link active" data-bs-toggle="pill" href="#c">2022</a>
             </li>
             <li class="nav-item">
@@ -36,17 +39,36 @@
     </section>
 
     <section class="tab-content mt-3 mb-5">
+        <div id="d" class="container tab-pane fade">
+            <div class="text-center">
+                <h2> 接口 + UI 测试框架</h2>
+                <p>
+                    接口框架主要用于加密货币量化交易系统对外提供的 API 接口测试
+                    <br />
+                    <br /> UI 测试框架主要用于公司虚拟 Visa 卡业务的「KYC 表单 + 链上充值」模块的自动化
+                    <br />（UI 自动化相关截图未展示）
+                </p>
+                <hr class="mx-auto border-primary-subtle">
+            </div>
+            <p class="mt-5">代码仓库-接口测试框架</p>
+            <img class="card-img-bottom" src="https://image.zuoright.com/http_test.jpg" />
+            <p class="mt-5">代码仓库-用例管理后台</p>
+            <img class="card-img-bottom" src="https://image.zuoright.com/allin_gitlab.jpg" />
+            <p class="mt-5">后台-GateWay</p>
+            <img class="card-img-bottom" src="https://image.zuoright.com/admin.jpg" />
+            <p class="mt-5">后台-HopeCard</p>
+            <img class="card-img-bottom" src="https://image.zuoright.com/20240720170047.png" />
+        </div>
         <div id="c" class="container tab-pane active">
             <div class="text-center">
                 <h2>
-                    RPC接口测试框架<br />
+                    RPC 接口测试框架<br />
                     <small>(包含用例管理后台+在线报告)</small>
                 </h2>
                 <p>
                     该框架主要用于加密货币量化交易系统 RPC 接口的自动化测试
-                    <br />第一版本用例使用 Tablib + Excel 管理，后改为 MySQL 管理，使用
-                    Django Admin 开发了对应的用例管理后台 <br />Pytest + Allure + Gitlab
-                    CI + Docker 实现每日自动化测试，并生成在线测试报告
+                    <br /> 第一版本用例使用 Tablib + Excel 管理，后改为 MySQL 管理，使用 Django Admin 开发了对应的用例管理后台
+                    <br /> Pytest + Allure + Gitlab CI + Docker 实现每日自动化测试，并生成在线测试报告
                 </p>
                 <hr class="mx-auto border-primary-subtle">
             </div>
@@ -64,16 +86,17 @@
         <div id="b" class="container tab-pane fade">
             <div class="text-center">
                 <h2>测试数据构建平台</h2>
-                该框架主要用于产研测人员构建一些日常测试数据，极大的提升了测试和验收的效率
-                <br />1. 免除重复登录服务器和访问数据库等操作 <br />2. 替代 QA
-                同学手工创建测试数据的繁琐步骤 <br />3. 方便没有权限或不懂 SQL 和
-                Shell 的PM同学使用 <br />4.
-                集成一些测试小工具方便验收：比如生成任意字数文本和任意尺寸的图片等
-                <br />5. 支持一键触发接口自动化测试框架流水线等功能
-                <br />
-                <br />可将常用的 Shell
-                脚本、SQL语句、自定义的API脚本等配置到后台，然后通过前段界面快捷操作使用
-                <br />涉及的第三方库有: mysqlclient, redis, paramiko, pillow, faker等
+                <p>
+                    该框架主要用于产研测人员构建一些日常测试数据，极大的提升了测试和验收的效率
+                    <br /> 1. 免除重复登录服务器和访问数据库等操作
+                    <br /> 2. 替代 QA 同学手工创建测试数据的繁琐步骤 
+                    <br /> 3. 方便没有权限或不懂 SQL 和 Shell 的 PM 同学使用
+                    <br /> 4. 集成一些测试小工具方便验收：比如生成任意字数文本和任意尺寸的图片等
+                    <br /> 5. 支持一键触发接口自动化测试框架流水线等功能
+                    <br />
+                    <br /> 可将常用的 Shell 脚本、SQL 语句、自定义的 API 脚本等配置到后台，然后通过前段界面快捷操作使用
+                    <br /> 涉及的第三方库有：mysqlclient, redis, paramiko, pillow, faker 等
+                </p>
                 <hr class="mx-auto border-primary-subtle">
             </div>
             <p class="mt-5">图1.0 第一版项目概览（基于Flask）</p>
@@ -99,15 +122,11 @@
             <div class="text-center">
                 <h2>HTTP 接口测试框架</h2>
                 该框架主要用于HTTP(S)接口自动化回归测试，适用于公司全业务线
-                <br />使用 Excel、Yaml、Json 分别管理用例和配置数据等。 <br />
-                支持用例录制：将Charles等抓包工具导出的通用HAR格式接口数据，自动转换为可执行用例，极大的提高了用例编写效率
-                <br />
-                用例分层，独立且可复用性高，支持多接口间调用，支持多环境随意切换，支持自定义函数等。
-                <br />
-                封装了DeepDiff库，可针对返回结果做字段是否缺失、类型是否正确、返回值是否匹配等的断言和校验、以此生成测试结果和报告。
-                <br />
-                并加入到了GitLab
-                CI流水线中，部署在服务器Docker环境下，实现持续集成，钉钉消息通知。
+                <br /> 使用 Excel、Yaml、Json 分别管理用例和配置数据等。
+                <br /> 支持用例录制：将 Charles 等抓包工具导出的通用 HAR 格式接口数据，自动转换为可执行用例，极大的提高了用例编写效率
+                <br /> 用例分层，独立且可复用性高，支持多接口间调用，支持多环境随意切换，支持自定义函数等。
+                <br /> 封装了 DeepDiff 库，可针对返回结果做字段是否缺失、类型是否正确、返回值是否匹配等的断言和校验、以此生成测试结果和报告。
+                <br /> 并加入到了 GitLab CI 流水线中，部署在服务器 Docker 环境下，实现持续集成，钉钉消息通知。
                 <hr class="mx-auto border-primary-subtle">
             </div>
             <p class="mt-5">图2.1 项目概览</p>
