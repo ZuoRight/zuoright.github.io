@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>Tools</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        h2 {
+            color: #444;
+        }
+        label {
+            margin-right: 10px;
+        }
+        input[type="number"], textarea, select {
+            margin: 10px 0;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box; /* 防止宽度超出父容器 */
+        }
+        input[type="color"] {
+            padding: 0;
+            border: none;
+            vertical-align: middle;
+        }
+        button {
+            background-color: #5cb85c;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            display: flex;
+            align-items: flex-end; /* 使子元素在容器的底部对齐 */
+            gap: 10px; /* 在子元素之间添加一些间隔 */
+        }
+
+        .form-group label {
+            margin-bottom: 0; /* 移除 label 的底部外边距 */
+        }
+    </style>
+
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px;
+        }
+        .input-area {
+            flex: 1;
+            margin-right: 20px; /* 为了在输入区域和图片展示区域之间添加一些间隔 */
+        }
+        .image-area {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input-area">
+            <h2>生成指定尺寸图片</h2>
+    
+            <label for="ratio">快速生成比例:</label>
+            <div>
+                <select id="ratio" onchange="updateDimensions()">
+                    <option value="">None</option>
+                    <option value="1:1">1:1</option>
+                    <option value="4:3" selected>4:3</option>
+                    <option value="16:9">16:9</option>
+                </select>
+                <button onclick="generateImage()">生成图片</button>    
+            </div>
+            
+
+            <div>
+                <label for="width">*宽度:</label>
+                <br>
+                <input type="number" id="width" placeholder="请输入宽度" value=400>
+                <br>
+                <label for="height">*高度:</label>
+                <br>
+                <input type="number" id="height" placeholder="请输入高度" value=300>
+            </div>
+    
+            <label for="text">居中描述:</label>
+            <div class="form-group">
+                <textarea id="text" placeholder="请输入文字">Example</textarea>
+                <button onclick="clearInput('text')">清空</button>
+            </div>
+
+            <label for="text2">右下角标注:</label>
+            <div class="form-group">
+                <textarea id="text2" placeholder="请输入文字">400x300</textarea>
+                <button onclick="clearInput('text2')">清空</button>
+            </div>
+            
+            <div>
+                <label for="textColor">文字颜色:</label>
+                <input type="color" id="textColor" value="#FFFFFF">
+                <label for="fontWeight">是否加粗:</label>
+                <select id="fontWeight">
+                    <option value="normal">否</option>
+                    <option value="bold">是</option>
+                </select>
+            </div>
+        </div>
+        <div class="image-area">
+            <a id="downloadLink" style="display: none;">下载图片</a>
+            <br>
+            <img id="image" style="max-width: 100%; height: auto;"/>
+        </div>
+    </div>
+
+    <script>
+        function clearInput(id) {
+            document.getElementById(id).value = '';
+        }
+    </script>
+
+    <script>
+        const widthInput = document.getElementById('width');
+        const heightInput = document.getElementById('height');
+        const textArea = document.getElementById('text2');
+        const ratioSelect = document.getElementById('ratio');
+
+        widthInput.addEventListener('input', updateDefaultValues);
+        heightInput.addEventListener('input', updateDefaultValues);
+        ratioSelect.addEventListener('change', updateDefaultValues);
+
+        function updateDefaultValues() {
+            const width = widthInput.value;
+            const height = heightInput.value;
+            const ratio = ratioSelect.value;
+
+            if (width && height) {
+                textArea.value = `${width}x${height}`;
+            } else if (ratio) {
+                const [ratioWidth, ratioHeight] = ratio.split(':');
+                textArea.value = `${ratioWidth}*${ratioHeight}`;
+            } else {
+                textArea.value = '';
+            }
+        }
+    </script>
+
+    <script>
+        function updateDimensions() {
+            const ratio = document.getElementById('ratio').value;
+            const widthInput = document.getElementById('width');
+            const heightInput = document.getElementById('height');
+
+            const [ratioWidth, ratioHeight] = ratio.split(':').map(Number);
+
+            if (ratio === "") {
+                // No ratio selected, clear the width and height inputs
+                widthInput.value = "";
+                heightInput.value = "";
+            } else {
+                // Calculate the width and height based on the selected ratio
+                const [ratioWidth, ratioHeight] = ratio.split(':').map(Number);
+                widthInput.value = ratioWidth * 100;
+                heightInput.value = ratioHeight * 100;
+            }
+        }
+    </script>	
+    
+    <script>
+        function generateImage() {
+            const width = document.getElementById('width').value;
+            const height = document.getElementById('height').value;
+            const text = document.getElementById('text').value; // 获取用户输入的文字
+
+            if (!width || !height) {
+                alert('请输入宽度和高度！');
+                return;
+            }
+
+            const canvas = document.createElement('canvas');
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext('2d');
+
+            // 创建渐变色
+            var gradient = ctx.createLinearGradient(0, 0, width, height);
+            gradient.addColorStop(0, 'red');
+            gradient.addColorStop(1, 'blue');
+            // 应用渐变色
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, width, height);
+
+            // 获取用户选择的颜色
+            // const customColor = document.getElementById('customColor').value;
+            // if (customColor) {
+            //     // 应用用户选择的颜色
+            //     ctx.fillStyle = customColor;
+            //     ctx.fillRect(0, 0, width, height);
+            // }
+
+            // 设置文字样式
+            const textColor = document.getElementById('textColor').value || 'white'; // 获取用户选择的文字颜色
+            const fontWeight = document.getElementById('fontWeight').value || 'bold'; // 获取用户选择的是否加粗
+            ctx.fillStyle = textColor; // 文字颜色
+            ctx.font = `${fontWeight} 20px Arial`; // 字体样式，固定使用 Arial 字体
+            ctx.textAlign = 'center'; // 文字居中
+
+            // 分割文字为多行
+            const lines = text.split('\n');
+            const lineHeight = 24; // 行高
+            const totalHeight = lineHeight * lines.length; // 总文本高度
+
+            // 计算第一行文字的绘制起始y位置，以便垂直居中
+            let startY = (height - totalHeight) / 2 + lineHeight / 2; // 垂直居中
+
+            // 逐行绘制文字
+            lines.forEach((line) => {
+                ctx.fillText(line, width / 2, startY);
+                startY += lineHeight; // 移到下一行
+            });
+
+            // 设置标注文字样式
+            const annotationText = document.getElementById('text2').value; // 获取用户输入的标注文字
+            ctx.fillStyle = textColor; // 文字颜色
+            ctx.font = `${fontWeight} 16px Arial`; // 字体样式，固定使用 Arial 字体
+            ctx.textAlign = 'end'; // 文字右对齐
+            ctx.textBaseline = 'bottom'; // 文字底部对齐
+
+            // 绘制标注文字
+            ctx.fillText(annotationText, width - 10, height - 10);
+
+            const dataURL = canvas.toDataURL('image/png');
+            const image = document.getElementById('image');
+            image.src = dataURL;
+
+            const downloadLink = document.getElementById('downloadLink');
+            downloadLink.href = dataURL;
+            downloadLink.download = `image_${width}x${height}.png`;
+            downloadLink.textContent = '下载图片';
+            downloadLink.style.display = 'inline';
+        }
+    </script>
+</body>
+</html>
